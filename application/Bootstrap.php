@@ -43,7 +43,7 @@
 
       public function _initDb(Yaf_Dispatcher $dispatcher){
          $this->_config = Yaf_Registry::get("config");
-         $this->_db = new db_medoo($this->_config->mysql->read->toArray());
+         $this->_db = new Db($this->_config->mysql->read->toArray());
          Yaf_Registry::set('_db', $this->_db);
       }
    }

@@ -1,6 +1,6 @@
 <?php
 /*! Medoo 0.9.5.3 - Copyright 2014, Angel Lai - MIT license - http://medoo.in */
-class db_medoo {
+class Db{
 	protected $database_type = 'mysql';
 
 	// For MySQL, MariaDB, MSSQL, Sybase, PostgreSQL, Oracle
