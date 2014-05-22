@@ -1,0 +1,19 @@
+{% extends "_base.console.twig" %}
+
+{% set composed = true %}
+
+{% block type %}
+    {% if var.title is not empty %}
+        <t_array_block>{{ var.title|tags }}</t_array_block><intro>
+    {% endif %}
+{% endblock %}
+
+{% block value %}
+    {% for item in var.items %}
+        {% if var.title is not empty or loop.index0 > 0 %}
+            {{ m.indent(item.level) }}
+        {% endif %}
+        {{ render_type(item, item.key) }}
+        {% if not loop.last %}<intro>{% endif %}
+    {% endfor %}
+{% endblock %}

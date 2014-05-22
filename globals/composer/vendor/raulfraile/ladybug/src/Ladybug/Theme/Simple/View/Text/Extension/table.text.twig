@@ -1,0 +1,31 @@
+{% extends "_base.text.twig" %}
+
+{% import "_macros_table.text.twig" as mt %}
+
+{% set composed = true %}
+
+{% block type %}
+    {% if var.title is not empty %}
+        >><space>{{ var.title|tags }}
+    {% endif %}
+{% endblock type %}
+
+{% block value %}
+    <intro>
+    {{ mt.render_row_separator(var) }}
+    <intro>
+    {{ mt.render_header(var) }}
+
+    <intro>
+
+        {{ mt.render_row_separator(var) }}
+        <intro>
+
+        {% for row in var.rows %}
+            {{ mt.render_row(row, var) }}
+            <intro>
+        {% endfor %}
+
+    {{ mt.render_row_separator(var) }}
+
+{% endblock %}

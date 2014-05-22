@@ -1,0 +1,16 @@
+{% extends "_base.text.twig" %}
+
+{% set composed = true %}
+
+{% block type %}array({{ var.length }}){% endblock type %}
+
+{% block value %}
+    <intro>
+    {% if not var.terminal %}
+        {% for item in var.value %}
+            {{ m.indent(item.value.level) }}
+            {{ render_type(item.value, item.key) }}
+            {% if not loop.last %}<intro>{% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

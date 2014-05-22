@@ -1,4 +1,8 @@
 <?php
+//启用composer task manager
+require "globals/composer/vendor/autoload.php";
+
+
 session_start();
 
 define('APPLICATION_PATH', dirname(__FILE__));

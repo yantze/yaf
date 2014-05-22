@@ -1,0 +1,20 @@
+{
+    "name": "ptachoire/cssembed",
+    "type": "library",
+    "description": "Css url embed library.",
+    "keywords": ["css", "url"],
+    "homepage": "https://github.com/krichprollsch/phpCssEmbed",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pierre Tachoire",
+            "email": "pierre.tachoire@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": { "CssEmbed": "src/" }
+    }
+}

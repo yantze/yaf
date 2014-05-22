@@ -14,6 +14,13 @@
       */
       public function indexAction()
       {
+          // $tpl = new Savant3();
+          // $name = "yang";
+          // $row = "ppp";
+          // $tpl->title = $name;
+          // $tpl->news = $row;
+          // $tpl->display('books.tpl.php');
+
          $this->getView()->assign("name",'yantze');
          $this->getView()->assign("content",'game,');
 

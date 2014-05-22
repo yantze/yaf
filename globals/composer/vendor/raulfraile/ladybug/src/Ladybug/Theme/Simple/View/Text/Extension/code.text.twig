@@ -1,0 +1,10 @@
+{% extends "_base.text.twig" %}
+
+{% set composed = true %}
+
+{% block type %}>><space>{{ var.title|tags }}<intro>{% endblock type %}
+
+{% block value %}
+    {{ m.indent(var.level) }}
+    {{ var.content|tags|replace({'<intro>': '<intro>' ~ m.indent(var.level)})|raw }}
+{% endblock %}

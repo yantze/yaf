@@ -1,0 +1,14 @@
+{% extends "_base.console.twig" %}
+
+{% set composed = true %}
+{% set display_tags = true %}
+
+{% block type %}<t_resource>resource({{ var.resourceType }})<space>#{{ var.resourceId }}</t_resource>{% endblock %}
+
+{% block value %}
+    {% if var.resourceCustomData is not empty %}
+        <intro>
+        {{ m.indent(var.resourceCustomData.level) }}
+        {{ render_type(var.resourceCustomData)|raw }}
+    {% endif %}
+{% endblock %}

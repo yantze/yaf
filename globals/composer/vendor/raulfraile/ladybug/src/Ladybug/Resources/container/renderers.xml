@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="render_html" class="Ladybug\Renderer\HtmlRenderer">
+            <argument type="service" id="theme_resolver" />
+            <argument>%renderer.html%</argument>
+            <tag name="ladybug.renderer" />
+        </service>
+
+        <service id="render_console" class="Ladybug\Renderer\ConsoleRenderer">
+            <argument type="service" id="theme_resolver" />
+            <tag name="ladybug.renderer" />
+        </service>
+
+        <service id="render_php" class="Ladybug\Renderer\PhpRenderer">
+            <argument type="service" id="theme_resolver" />
+            <tag name="ladybug.renderer" />
+        </service>
+
+        <service id="render_text" class="Ladybug\Renderer\TextRenderer">
+            <argument type="service" id="theme_resolver" />
+            <tag name="ladybug.renderer" />
+        </service>
+
+        <service id="render_json" class="Ladybug\Renderer\JsonRenderer">
+            <argument type="service" id="theme_resolver" />
+            <tag name="ladybug.renderer" />
+        </service>
+
+        <service id="render_xml" class="Ladybug\Renderer\XmlRenderer">
+            <argument type="service" id="theme_resolver" />
+            <tag name="ladybug.renderer" />
+        </service>
+
+    </services>
+</container>

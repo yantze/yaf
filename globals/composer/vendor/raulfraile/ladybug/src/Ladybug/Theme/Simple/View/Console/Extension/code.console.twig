@@ -1,0 +1,12 @@
+{% extends "_base.console.twig" %}
+
+{% set composed = true %}
+
+{% block type %}
+    <t_array_block>{{ var.title|tags }}</t_array_block><intro>
+{% endblock %}
+
+{% block value %}
+    {{ m.indent(var.level) }}
+    {{ var.content|tags|replace({'<intro>': '<intro>' ~ m.indent(var.level)})|raw }}
+{% endblock %}

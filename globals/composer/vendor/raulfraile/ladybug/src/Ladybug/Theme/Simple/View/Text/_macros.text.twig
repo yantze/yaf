@@ -1,0 +1,55 @@
+{#
+ # Indent line to the given level
+ # @param int level
+ #}
+{% macro indent(level) %}
+    {{ '<tab>'|repeat(level-1) }}
+{% endmacro %}
+
+{#
+ # Writes the key of an array
+ # @param mixed key
+ #}
+{% macro array_key(key) %}
+    {% if key is not empty %}
+        [{{ key|tags }}]:<space>
+    {% endif %}
+{% endmacro %}
+
+{#
+ # Writes the method/property visibility
+ # @param VisibilityInterface visibility
+ #}
+{% macro visibility_text(visibility) %}
+    {% if visibility is not null %}
+        {% if visibility == constant('Ladybug\\Type\\ObjectType\\VisibilityInterface::VISIBILITY_PRIVATE') %}
+            -
+        {% elseif visibility == constant('Ladybug\\Type\\ObjectType\\VisibilityInterface::VISIBILITY_PROTECTED') %}
+            #
+        {% else %}
+            +
+        {% endif %}
+        <space>
+    {% endif %}
+{% endmacro %}
+
+{#
+ # Renders an object method
+ # @param Method method
+ #}
+{% macro render_object_method(method, level) %}
+    {{ _self.visibility_text(method.visibility) }}
+    {{ method.name }}(
+
+    {% for methodParameter in method.parameters %}
+        {% if methodParameter.type is not empty %}
+            {{ methodParameter.type }}<space>
+        {% endif %}
+        ${{ methodParameter.name }}
+
+        {% if methodParameter.defaultValue is not null %}
+            <space>=<space> {{ methodParameter.defaultValue.inlineValue|tags }}
+        {% endif %}{% if not loop.last %},<space>{% endif %}
+    {% endfor %}
+    )
+{% endmacro %}

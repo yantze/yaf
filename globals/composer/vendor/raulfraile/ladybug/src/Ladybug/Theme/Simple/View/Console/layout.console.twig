@@ -1,0 +1,6 @@
+{% for node in nodes %}
+    {{ render_type(node) }}<intro>
+
+{% endfor %}
+
+<intro><f_called>{{ callFile }}:{{ callLine }}</f_called><intro>

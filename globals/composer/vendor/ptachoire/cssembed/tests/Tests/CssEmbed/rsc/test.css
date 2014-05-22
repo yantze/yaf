@@ -1,0 +1,16 @@
+/* Css file to test phpCssEmbed **/
+
+.this-is a#css-selector {
+    background: url('//google.com/test.gif');
+    background: url('http://google.com/test.gif');
+    background: url('test.gif?http_param=1');
+    background: url('php.gif');
+    background: url("php.gif");
+    background: url( 'php.gif' );
+    background: url( php.gif );
+    background: url(php.gif);
+    background: url(../rsc/php.gif);
+    background: url(php.gif);background: url(php.gif);background: url(php.gif);
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII=);
+    x-foo: url(binary.file);
+}

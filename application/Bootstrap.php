@@ -9,11 +9,10 @@
    print_r(Yaf_Application::app());
    */
    class Bootstrap extends Yaf_Bootstrap_Abstract{
-
       public function _initConfig() {
          //把配置保存起来
-         $arrConfig = Yaf_Application::app()->getConfig();
-         Yaf_Registry::set('config', $arrConfig);
+         $this->_config = Yaf_Application::app()->getConfig();
+         Yaf_Registry::set('config', $this->_config);
       }
 
       public function _initPlugin(Yaf_Dispatcher $dispatcher) {
@@ -42,8 +41,16 @@
       }
 
       public function _initDb(Yaf_Dispatcher $dispatcher){
-         $this->_config = Yaf_Registry::get("config");
          $this->_db = new Db($this->_config->mysql->read->toArray());
          Yaf_Registry::set('_db', $this->_db);
+      }
+
+      public function _initMemcached(Yaf_Dispatcher $dispatcher){
+         $this->_mc = new memcached();
+         $mc_server = $this->_config->memcached;
+         $this->_mc->addServer($mc_server['host'], $mc_server['port']);
+         Yaf_Registry::set('_mc', $this->_mc);
+         //$this->_mc->set("y","yangzhi");
+         //echo $this->_mc->get("y");
       }
    }

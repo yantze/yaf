@@ -1,0 +1,5 @@
+.DS_Store
+/.idea
+.phpmake
+/Vendor/*
+/composer.lock

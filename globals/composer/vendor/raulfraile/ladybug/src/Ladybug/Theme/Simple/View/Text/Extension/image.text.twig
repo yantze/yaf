@@ -1,0 +1,14 @@
+{% extends "_base.text.twig" %}
+
+{% set composed = true %}
+
+{% block type %}
+    {% if var.title is not empty %}
+        >><space>{{ var.title|tags }}<intro>
+    {% endif %}
+{% endblock %}
+
+{% block value %}
+    {{ m.indent(var.level) }}Temporary<space>path:<space>file://{{ var.tempPath }}<intro>
+    {{ m.indent(var.level) }}Dimensions:<space>{{ var.width }}x{{ var.height }}
+{% endblock %}

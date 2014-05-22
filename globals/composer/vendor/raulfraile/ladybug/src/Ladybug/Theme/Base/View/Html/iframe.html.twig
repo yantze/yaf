@@ -1,0 +1,39 @@
+<iframe id="ladybug_iframe_{{ id }}" frameborder="0" width="{{ options.width }}" height="100" style="margin: 5px;overflow:hidden" scrolling="no"></iframe>
+<input type="hidden" id="ladybug_theme_{{ id }}" value="{{ theme }}" />
+<script>
+    function resizeIframe{{ id }}(height, width) {
+        document.getElementById("ladybug_iframe_{{ id }}").height = height + "px";
+        document.getElementById("ladybug_iframe_{{ id }}").width = width + "px";
+    }
+
+    var ladybug_iframe_{{ id }} = document.getElementById("ladybug_iframe_{{ id }}").contentWindow.document;
+    ladybug_iframe_{{ id }}.open();
+
+    var ladybug_content = '';
+    if (document.getElementById("ladybug_css_{{ id }}")) {
+        ladybug_content += "<style>" + document.getElementById("ladybug_css_{{ id }}").innerHTML + "</style>";
+    }
+    if (document.getElementById("ladybug_js_{{ id }}")) {
+        ladybug_content += "<script>" + document.getElementById("ladybug_js_{{ id }}").innerHTML + ";\<\/script>";
+    }
+    if (document.getElementById("ladybug_content_{{ id }}")) {
+        ladybug_content += document.getElementById("ladybug_content_{{ id }}").innerHTML.replace(/\<ladybug_script\>/g, "<script>").replace(/\<\/ladybug_script\>/g, "\<\/script>");
+    }
+    if (document.getElementById("ladybug_js_bottom_{{ id }}")) {
+        ladybug_content += "<script>" + document.getElementById("ladybug_js_bottom_{{ id }}").innerHTML + ";\<\/script>";
+    }
+
+
+    ladybug_iframe_{{ id }}.write(ladybug_content);
+    ladybug_iframe_{{ id }}.close();
+
+    resizeIframeInit{{ id }}();
+
+    function resizeIframeInit{{ id }}() {
+        var height = ladybug_iframe_{{ id }}.body.scrollHeight;
+        var width = ladybug_iframe_{{ id }}.body.scrollWidth;
+
+        document.getElementById("ladybug_iframe_{{ id }}").height = height + "px";
+        document.getElementById("ladybug_iframe_{{ id }}").width = width + "px";
+    }
+</script>

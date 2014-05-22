@@ -1,0 +1,13 @@
+{% extends "_base.html.twig" %}
+
+{% block type %}{{ parent() }} ({{ var.length }}){% endblock %}
+
+{% block inline_value %}{{ var.inlineValue }}{% endblock %}
+
+{% block header_extra %}
+    <span class="pull-right">
+        <span class="muted" style="font-size:11px">
+            {{ var.encoding }}
+        </span>
+    </span>
+{% endblock %}

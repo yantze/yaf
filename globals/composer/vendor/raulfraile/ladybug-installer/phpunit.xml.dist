@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<phpunit bootstrap="tests/bootstrap.php" colors="true" strict="true">
+    <testsuites>
+        <testsuite name="ladybugInstaller">
+            <directory>./tests/Ladybug</directory>
+        </testsuite>
+    </testsuites>
+    <listeners>
+        <listener class="\Mockery\Adapter\Phpunit\TestListener"></listener>
+    </listeners>
+
+</phpunit>

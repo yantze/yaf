@@ -1,0 +1,11 @@
+{% extends "_base.text.twig" %}
+
+{% set composed = false %}
+
+{% block type %}{% endblock %}
+
+{% block inline_value %}
+    {{ var.sizeUnit|number_format(2) }}
+    <space>
+    {{ var.unit }}
+{% endblock %}

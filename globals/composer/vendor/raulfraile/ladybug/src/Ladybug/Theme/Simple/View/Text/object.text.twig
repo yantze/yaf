@@ -1,0 +1,88 @@
+{% extends "_base.text.twig" %}
+
+{% set composed = true %}
+
+{% block type %}{{ var.type }}({{ var.className }}){% endblock type %}
+{% block value %}
+
+    {% if not var.terminal %}
+        <intro>
+
+        {# Custom data #}
+        {% if var.objectCustomData is not empty %}
+            {{ m.indent(var.objectCustomData.level) }}
+            {{ render_type(var.objectCustomData) }}
+        {% endif %}
+
+        {# Properties #}
+        {% if var.objectProperties is not empty %}
+            {{ m.indent(level + 1) }}>><space>Properties<intro>
+
+            {% for data in var.objectProperties %}
+                {{ m.indent(level+1) }}
+                {{ render_type(data.value, data.name, data.visibility)|raw }}
+                {#% if not loop.last %}<intro>{% endif %#}
+                {% if not loop.last %}<intro>{% endif %}
+            {% endfor %}
+
+            {% endif %}
+
+        {# Class info #}
+        {% if var.classFile is not empty %}
+            <intro>
+            {{ m.indent(level + 1) }}>><space>Class<space>info<intro>
+
+                {% set class_info_data = {} %}
+
+                {# Filename #}
+                {% if var.classFile is not empty %}
+                    {% set class_info_data = class_info_data|merge(['Filename:<space>' ~ var.classFile]) %}
+                {% endif %}
+
+                {# Interfaces #}
+                {% if var.classInterfaces is not empty %}
+                    {% set class_info_data = class_info_data|merge(['Interfaces:<space>' ~ var.classInterfaces|tags]) %}
+                {% endif %}
+
+                {# Traits #}
+                {% if var.classTraits is not empty %}
+                    {% set class_info_data = class_info_data|merge(['Traits:<space>' ~ var.classTraits]) %}
+                {% endif %}
+
+                {# Namespace #}
+                {% if var.classNamespace is not empty %}
+                    {% set class_info_data = class_info_data|merge(['Namespace:<space>' ~ var.classNamespace]) %}
+                {% endif %}
+
+                {# Parent #}
+                {% if var.classParent is not empty %}
+                    {% set class_info_data = class_info_data|merge(['Parent:<space>' ~ var.classParent]) %}
+                {% endif %}
+
+                {{ m.indent(var.level + 1) }}{{ class_info_data|join('<intro>' ~ m.indent(var.level + 1))|raw }}
+        {% endif %}
+
+        {# Class constants #}
+        {% if var.classConstants is not empty %}
+            <intro>
+            {{ m.indent(level + 1) }}>><space>Constants<intro>
+            {% for key,constant in var.classConstants %}
+                {{ m.indent(constant.value.level) }}
+                {{ render_type(constant.value, constant.name)|raw }}
+                {% if not loop.last %}<intro>{% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {# Class methods #}
+        {% if var.classMethods is not empty %}
+            <intro>
+            {{ m.indent(level + 1) }}>><space>Methods<intro>
+            {% for method in var.classMethods %}
+                {{ m.indent(method.level) }}
+                {{ m.render_object_method(method, level) }}
+                {% if not loop.last %}<intro>{% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{
+    "name": "raulfraile/ladybug-installer",
+    "description": "Unified installer for ladybug addons",
+    "type": "composer-plugin",
+    "version": "v1.0.1",
+    "keywords": ["ladybug", "installer", "themes", "plugins"],
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {"Ladybug": ["src/"]}
+    },
+    "extra": {
+        "class": "\\Ladybug\\LadybugPlugin"
+    },
+    "require": {
+        "composer-plugin-api": "*"
+    },    
+    "require-dev": {
+        "composer/composer": "1.*",
+        "mockery/mockery": "0.8.0"
+    },
+    "minimum-stability": "dev",
+    "archive": {
+        "exclude": [
+            "tests",
+            "phpunit.xml.dist",
+            ".travis.yml",
+            ".gitignore"
+        ]
+    }
+}

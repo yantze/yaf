@@ -1,0 +1,50 @@
+{% extends "_base.console.twig" %}
+
+{% import "_macros_table.console.twig" as mt %}
+
+{% block type %}
+    <t_array_block>{{ var.title|tags }}</t_array_block>
+{% endblock type %}
+
+{% block value %}
+
+    {{ mt.render_row_separator(var, false) }}
+    <intro>
+        {{ mt.render_header(var) }}
+
+        <intro>
+
+            {{ mt.render_row_separator(var, true) }}
+            <intro>
+
+                {% for row in var.rows %}
+                {{ mt.render_row(row, var) }}
+                <intro>
+                    {% endfor %}
+
+                    {{ mt.render_row_separator(var, true) }}
+
+                    {% endblock %}
+
+{#
+{% import "_macros.console.twig" as m %}
+
+    {% for item in var.header %}
+        {{ item }}
+
+        {% if not loop.last %}<space>|<space>{% endif %}
+
+    {% endfor %}
+
+    <intro>
+
+    {% for item in var.rows %}
+        {{ m.indent(var.level) }}
+        {% for subitem in item %}
+            {{ subitem }}
+
+            {% if not loop.last %}<space>|<space>{% endif %}
+        {% endfor %}
+        <intro>
+    {% endfor %}
+#}
