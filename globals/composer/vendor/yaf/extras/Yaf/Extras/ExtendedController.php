@@ -9,7 +9,7 @@ namespace Yaf\Extras;
 
 // Rewrited and Extended Controller
 // - overwrite render/display, remove default template extension
-class ExtendedController extends \Yaf\Controller_Abstract {
+class ExtendedController extends \Yaf_Controller_Abstract {
 
     // View functions
     // overwrite render

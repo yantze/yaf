@@ -1,5 +1,31 @@
-<form method=POST>
+<p>登陆</p>
+<form action="admin/login" method=POST>
    <input name="username" type="text" placeholder="username">
    <input name="password" type="password" placeholder="password">
    <input name="submit" type="submit" value="login">
+</form>
+
+<p>增加用户</p>
+<form action="admin/add" method=POST>
+   <input name="username" type="text" placeholder="username">
+   <input name="password" type="password" placeholder="password">
+   <input name="repassword" type="password" placeholder="repassword">
+   <input name="email" type="text" placeholder="email">
+   <input type="submit" value="add">
+</form>
+
+<p>修改用户</p>
+<form action="admin/edit" method=POST>
+   <input name="username" type="text" placeholder="username" value="admin">
+   <input name="password" type="password" placeholder="password" value="123456789">
+   <input name="repassword" type="password" placeholder="repassword" value="123456789">
+   <input name="email" type="text" placeholder="email" value="yantze@111.com">
+   <input name="submit" type="submit" value="change">
+</form>
+
+<p>删除用户</p>
+<form action="admin/del" method=POST>
+   <input name="username" type="text" placeholder="username" value="admin">
+   <input name="password" type="password" placeholder="password" value="123456789">
+   <input name="submit" type="submit" value="delete">
 </form>
