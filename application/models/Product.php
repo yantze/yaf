@@ -2,6 +2,7 @@
    Class ProductModel
    {
       protected $_table = "shop_product";
+      protected $_index = "product_id";
 
       public function __construct()
       {
@@ -18,8 +19,9 @@
             "amount",
             "category_id"
          );
-         $whereis = array( "product_id"=>$username,
-                           "is_del"=>0);
+         $whereis = array( 
+            "AND"=>array( $this->_index=>$username, "is_del"=>0)
+         );
          $result = $this->_db->select($this->_table, $params ,$whereis );
 
          return $result==null?false:$result;
@@ -60,3 +62,4 @@
          return $result==null?false:true;
       }
    }
+         //print_r($this->_db->error());

@@ -16,13 +16,8 @@
       }
 
       public function _initPlugin(Yaf_Dispatcher $dispatcher) {
-         //注册一个插件
-         $objSamplePlugin = new SamplePlugin();
-         $dispatcher->registerPlugin($objSamplePlugin);
-
-         //$userPlugin = new UserPlugin();
-         //$dispatcher->registerPlugin($userPlugin);
-
+         $userPlugin = new UserPlugin();
+         $dispatcher->registerPlugin($userPlugin);
       }
 
       public function _initRoute(Yaf_Dispatcher $dispatcher) {

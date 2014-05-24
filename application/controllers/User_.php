@@ -1,17 +1,17 @@
 <?php
    //require "../yaf_classes.php";
+   /**
+   * 
+   */
    class UserController extends Yaf_Controller_Abstract
    {
       public function init()
       {
-         $this->_user = new UserModel();
+         $this->_user = new AdminModel();
       }
 
       public function indexAction()
       {
-         $this->getView()->assign("name",'yantze');
-         $this->getView()->assign("content",'game,');
-
          $userData = $this->_user->selectAll();
          $this->getView()->assign("userData", $userData );
 
@@ -29,8 +29,7 @@
             if($ret)
             {
                //$this->getView()->assign("content",'登陆成功！！');
-               //$_SESSION['username']=$username."ddd"; //这种方式已经不使用了
-               Yaf_Session::getInstance()->set("username",$username);
+               $_SESSION['username']=$username;
                exit("登录成功！");
             }
             else
@@ -39,7 +38,6 @@
                exit("登陆不成功！");
             }
          }
-
          return false;
       }
 
@@ -66,7 +64,6 @@
                exit("添加失败");
             }
          }
-         return false;
       }
       public function editAction()
       {
@@ -112,6 +109,7 @@
             }
             exit("删除失败");
          }
+
          return false;
       }
 
