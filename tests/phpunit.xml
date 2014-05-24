@@ -1,0 +1,14 @@
+<phpunit bootstrap="./bootstrap.php"
+        convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true">
+    <testsuite name="Yaf Framework - Testsuite">
+        <directory>./</directory>
+        <exclude>./framework/Yaf/Config/SimpleTest.php</exclude>
+    </testsuite>
+
+    <php>
+          <ini name="yaf.action_prefer" value="0"/>
+          <env name="action_prefer" value="0"/>
+    </php>
+</phpunit>

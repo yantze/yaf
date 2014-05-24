@@ -16,13 +16,8 @@
       }
 
       public function _initPlugin(Yaf_Dispatcher $dispatcher) {
-         //注册一个插件
-         $objSamplePlugin = new SamplePlugin();
-         $dispatcher->registerPlugin($objSamplePlugin);
-
-         //$userPlugin = new UserPlugin();
-         //$dispatcher->registerPlugin($userPlugin);
-
+         $userPlugin = new UserPlugin();
+         $dispatcher->registerPlugin($userPlugin);
       }
 
       public function _initRoute(Yaf_Dispatcher $dispatcher) {
@@ -53,4 +48,30 @@
          //$this->_mc->set("y","yangzhi");
          //echo $this->_mc->get("y");
       }
+      public function _initSession($dispatcher)
+      {
+         //session_start();
+         //不使用这个了，因为要使用 Yaf_Session::getInstance()->start();
+         Yaf_Session::getInstance()->start();
+      }
+
+      /*protected function _initTwig(Yaf_Dispatcher $dispatcher)
+      {
+         $dispatcher->setView(new \Suin\Yaf\Twig\Twig(APPLICATION_PATH.'/application/views', $this->_config->twig->toArray()));
+         // $view = new Twig_Adapter(ROOT_DIR . "/admin/views/", Yaf_Registry::get("config")->get("twig")->toArray());
+         // $dispatcher->setView($view);
+      }*/
+      /*public function _initLocalName() {
+         Yaf_Loader::getInstance()->registerLocalNamespace(array(
+            'Smarty',
+         ));
+      }*/
+
+      public function _initSmarty(Yaf_Dispatcher $dispatcher) {
+         /* init smarty view engine */
+         /*Yaf_Loader::import("Smarty/Adapter.php");
+         $smarty = new Smarty_Adapter(null, Yaf_Application::app()->getConfig()->smarty);
+         $dispatcher->setView($smarty);*/
+      }
+
    }

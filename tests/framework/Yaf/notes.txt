@@ -1,0 +1,22 @@
+Notes:
+
+- making changes to a config which is set to read only should throw a new exception, instead of doing nothing.
+- unseting a config name when is read only should throw an exception
+- unseting a config name when not read only should unset the name, but it does not do anything
+- config with numeric keys does not work
+- ini file config does not accept section name as array
+
+
+View constructor second option is not used to anything
+
+?Need a translate object for router and locale
+
+Yaf_Route_Static::match  is not used anywhere and doesn't do anything
+Yaf_Route_Static doesn't have a constructor, so it's not possible to use it outside the framework.
+
+Yaf_Route_Interface - should add a method getInstance which will create an instance of the router
+ from the config. Each subclass will need to implement that method 
+ 
+ Yaf_Route_Regex - what does the verify parameter in the constructor? Don't seem to be used anywhere.
+ Yaf_Router_Map - _ctl_router should be boolean instead of int.
+ Yaf_Loader - setLibaryPath instead of using a bool should be split into 2 methods, setLibaryPath and setGlobalPath

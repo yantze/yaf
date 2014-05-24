@@ -1,6 +1,13 @@
 yaf
 ===
 
+编写yaf已经有整整四天了，基本的雏形已经出来：
+集成好了smarty和twig模板引擎，后来没有用，暂时注释
+使用了ORM框架Medoo
+开启yaf的Session管理
+使用了memcached和php的memcached扩展，添加session
+
+
 yaf+yar+msgpack+opcache for mvc+orm to api
 
 
@@ -15,3 +22,4 @@ yaf+yar+msgpack+opcache for mvc+orm to api
 
 
 yaf 的一些资源：http://www.laruence.com/2012/07/06/2649.html
+yaf学习的一些思路：http://achun.iteye.com/blog/1473126

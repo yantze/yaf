@@ -14,45 +14,17 @@
       */
       public function indexAction()
       {
-          // $tpl = new Savant3();
-          // $name = "yang";
-          // $row = "ppp";
-          // $tpl->title = $name;
-          // $tpl->news = $row;
-          // $tpl->display('books.tpl.php');
+         $site = new OptionModel();
+         $siteInfo = $site->selectAll();
 
-         $this->getView()->assign("name",'yantze');
-         $this->getView()->assign("content",'game,');
+         $this->getView()->assign("name",$siteInfo[0]['value']);
+         $this->getView()->assign("desc",$siteInfo[1]['value']);
 
-               $_SESSION['username'] = 'name';
-               echo $_SESSION['username'];
-
-         if($this->getRequest()->isPost())
-         {
-            $username = $this->getRequest()->getPost('username');
-            $pwd      = $this->getRequest()->getPost('password');
-
-            $user = new UserModel();
-            $ret  = $user->loginUser($username, md5(trim($pwd)));
-
-            if($ret)
-            {
-               //$this->getView()->assign("content",'登陆成功！！');
-               $_SESSION['username']=$username;
-               exit("100:登录成功！");
-            }
-            else
-            {
-               //$this->getView()->assign("content",'登陆不成功！！');
-               exit("101:登陆不成功！");
-            }
-
-         }
-
+         return true;
       }
 
       public function testAction($name = "Stranger", $password = "") {
-               echo $_SESSION['username'];
+         echo $_SESSION['username'];
          //1. fetch query
          $get = $this->getRequest()->getQuery("get", "default value");
 
