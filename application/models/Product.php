@@ -2,7 +2,7 @@
    Class ProductModel
    {
       protected $_table = "shop_product";
-      protected $_index = "product_id";
+      protected $_index = "product_name";
 
       public function __construct()
       {
@@ -13,6 +13,7 @@
       {
          $params = array(
             "product_id",
+            "product_uuid",
             "product_name",
             "reg_time",
             "money",
@@ -30,6 +31,7 @@
       {
          $params = array(
             "product_id",
+            "product_uuid",
             "product_name",
             "reg_time",
             "money",
@@ -44,22 +46,28 @@
 
       public function insert($info)
       {
-         $result = $this->_db->insert($this->_table, $info);
-
-         return $result<1?false:true;
+         //这里主要是判断是否已经有了商品
+         if(!$this->select($info[$this->_index])){
+            $result = $this->_db->insert($this->_table, $info);
+            return $result<1?false:true;
+         }
+         return false;
       }
       public function update($username, $info)
       {
-         $result = $this->_db->update($this->_table, $info, array( 'product_id'=>$username ));
+         $whereis = array( $this->_index=>$username );
+         $result = $this->_db->update($this->_table, $info, $whereis );
 
          return $result<1?false:true;
       }
       public function del($username)
       {
          $params = array( 'is_del'=>'1' );
-         $whereis = array( 'product_id'=>$username );
+         $whereis = array( $this->_index=>$username );
          $result = $this->_db->update($this->_table, $params, $whereis );
+
          return $result==null?false:true;
       }
    }
          //print_r($this->_db->error());
+         //print_r($this->_db->last_query());

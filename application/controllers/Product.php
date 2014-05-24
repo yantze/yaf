@@ -12,7 +12,7 @@
          $productData = $this->_product->selectAll();
          $this->getView()->assign("productData",$productData);
 
-         return false;
+         return true;
       }
 
       function addAction()
@@ -26,6 +26,9 @@
                   exit("不能为空");
                }
             }
+            $_utils = new utils();
+            $posts['product_uuid']=$_utils->guid();
+            $posts['is_del']='';
             if($this->_product->insert($posts)){
                exit("添加商品成功");
             }else{
@@ -45,7 +48,7 @@
                   exit("不能为空");
                }
             }
-            if($this->_product->insert($posts)){
+            if($this->_product->update($posts['product_name'],$posts)){
                exit("修改商品成功");
             }else{
                exit("修改商品失败");
@@ -56,7 +59,7 @@
       function delAction()
       {
           if($this->getRequest()->isPost()){
-            $product_id = $this->getRequest()->getPost("product_id");
+            $product_id = $this->getRequest()->getPost("product_name");
             if($this->_product->del($product_id)){
                exit("删除成功");
             }else{
@@ -67,8 +70,8 @@
 
       function getAction()
       {
-         $product_id = $this->getRequest()->getQuery("product_id");
-         if($product_data = $this->_product->select($product_id)){
+         $product_name = $this->getRequest()->getQuery("product_name");
+         if($product_data = $this->_product->select($product_name)){
             print_r($product_data);
             return false;
          }else{

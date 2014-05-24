@@ -59,7 +59,9 @@
             }
             unset($posts['repassword']);
             unset($posts['submit']);
-            $posts['is_del'] = 0;
+            $posts['is_del'] = '';
+            $_utils = new utils();
+            $posts['user_uuid'] = $_utils->guid();
             if($this->_user->insert($posts)){
                exit("添加成功");
             }else{

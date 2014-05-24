@@ -2,8 +2,8 @@
    forp_start();
    date_default_timezone_set('Asia/Chongqing');
 
-   define('APPLICATION_PATH', dirname(__FILE__));
-   define('APP_PATH', dirname(__FILE__));
+   define('APPLICATION_PATH', dirname(__FILE__).'/../');
+   define('APP_PATH', dirname(__FILE__).'/../');
 
    if(!extension_loaded("yaf")){
       include(APPLICATION_PATH.'/globals/framework/loader.php');
@@ -14,7 +14,7 @@
    forp_end();
 ?>
 
-<script src="/public/js/forp.min.js"></script>
+<script src="/js/forp.min.js"></script>
 <script>
    (function($) {
       $(".forp")

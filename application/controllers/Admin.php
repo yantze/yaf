@@ -2,8 +2,12 @@
    //require "../yaf_classes.php";
    class AdminController extends Yaf_Controller_Abstract
    {
-      public function init()
-      {
+      public function init(){
+         //使用layout页面布局
+         $this->_layout = new LayoutPlugin('slide/layout.html');
+         $this->dispatcher = Yaf_Registry::get("dispatcher");
+         $this->dispatcher->registerPlugin($this->_layout);
+
          $this->_user = new AdminModel();
       }
 

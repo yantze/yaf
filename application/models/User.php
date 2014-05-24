@@ -57,9 +57,9 @@
 
       public function insert($info)
       {
-         //$result = $this->_db->insert($this->_table, $info, $whereis);
-         $sql = "REPLACE INTO ".$this->_table."(username, email, password, is_del) VALUES('".$info['username']."', '".$info['email']."', '".$info['password']."', b'0');";
-         $result = $this->_db->exec($sql);
+         $result = $this->_db->insert($this->_table, $info);
+         //$sql = "REPLACE INTO ".$this->_table."(username, email, password, is_del) VALUES('".$info['username']."', '".$info['email']."', '".$info['password']."', b'0');";
+         //$result = $this->_db->exec($sql);
 
          return $result<1?false:true;
       }
