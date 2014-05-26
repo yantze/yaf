@@ -35,6 +35,18 @@
             "simple", new Yaf_Route_simple('m', 'c', 'a')
          );
 
+         $route  = new Yaf_Route_Rewrite(
+            //"/product/list/:id/:name",
+            "/product/list",
+            array(
+               "controller" => "product",
+               "action"	 => "index",
+            )
+         );
+         Yaf_Dispatcher::getInstance()->getRouter()->addRoute(
+            "product", $route
+         );
+
          //$dispatcher->setDefaultModule("index")->setDefaultController("index")->setDefaultAction("index");
       }
 

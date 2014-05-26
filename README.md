@@ -30,3 +30,5 @@ yaf+yar+msgpack+opcache for mvc+orm to api
 yaf 的一些资源：http://www.laruence.com/2012/07/06/2649.html
 
 yaf学习的一些思路：http://achun.iteye.com/blog/1473126
+
+YafUse项目给了我很大的帮助：https://www.github.com/melonwool/YafUse/

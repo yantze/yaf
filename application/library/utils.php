@@ -16,4 +16,12 @@
             return $uuid;
          }
       }
+
+      function ret_json($ret_type='error', $code=-1, $msg='未知错误'){
+         $ret=array();
+         $ret[$ret_type]['code'] = $code;
+         $ret[$ret_type]['msg'] =  $msg;
+
+         return json_encode($ret);
+      }
    }

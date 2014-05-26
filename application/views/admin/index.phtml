@@ -1,31 +1,55 @@
-<p>登陆</p>
-<form action="admin/login" method=POST>
-   <input name="username" type="text" placeholder="username">
-   <input name="password" type="password" placeholder="password">
-   <input name="submit" type="submit" value="login">
-</form>
-
-<p>增加用户</p>
-<form action="admin/add" method=POST>
-   <input name="username" type="text" placeholder="username">
-   <input name="password" type="password" placeholder="password">
-   <input name="repassword" type="password" placeholder="repassword">
-   <input name="email" type="text" placeholder="email">
-   <input type="submit" value="add">
-</form>
-
-<p>修改用户</p>
-<form action="admin/edit" method=POST>
-   <input name="username" type="text" placeholder="username" value="admin">
-   <input name="password" type="password" placeholder="password" value="123456789">
-   <input name="repassword" type="password" placeholder="repassword" value="123456789">
-   <input name="email" type="text" placeholder="email" value="yantze@111.com">
-   <input name="submit" type="submit" value="change">
-</form>
-
-<p>删除用户</p>
-<form action="admin/del" method=POST>
-   <input name="username" type="text" placeholder="username" value="admin">
-   <input name="password" type="password" placeholder="password" value="123456789">
-   <input name="submit" type="submit" value="delete">
-</form>
+<div class="row-fluid">
+    <div class="dialog">
+        <div class="block">
+            <p class="block-heading">管理员登录</p>
+            <div class="block-body">
+                <form>
+                    <h5 id="err" style="color:red;"></h5>
+                    <label>用户名</label>
+                    <input type="text" class="span12" id="username" name="username">
+                    <label>密码</label>
+                    <input type="password" class="span12" id="password" name="password">
+                    <a href="javascript:void(0);" class="btn btn-primary pull-right" id="login">确认</a>
+                    <!-- <label class="remember-me"><input type="checkbox"> Remember me</label> -->
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+        <p class="pull-right" style=""><a href="#" target="blank">购物平台</a></p>
+<p><a href="#">Forgot your password?</a></p>
+    </div>
+</div>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+         function EnterPress(e){
+            var e = e || window.event; 
+            if(e.keyCode == 13){ 
+              $('#login').click();
+            } 
+          }   
+        $(function(){
+           $('#login').click(function(){
+                $.ajax({
+                    url:'/admin/login',
+                    type:'POST',
+                    data:{username:$('#username').val(),password:$('#password').val()},
+                    success:function(msg){
+                       msg_json = $.parseJSON(msg);
+                       if(msg_json.error_response) {
+                          console.log(msg_json.error_response);
+                          $('#err').html(msg_json.error_response.msg);
+                       }
+                       else if(msg_json.success_response) {
+                          location.href="/admin";
+                       }
+                    }
+                })
+           })      
+        })        
+    </script>
+    
+  </body>
+</html>

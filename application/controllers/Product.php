@@ -4,6 +4,10 @@
    {
       public function init()
       {
+         $_layout = new LayoutPlugin('admin/admin.html');
+         $_dispatcher = Yaf_Registry::get("dispatcher");
+         $_dispatcher->registerPlugin($_layout);
+
          $this->_product = new ProductModel();
       }
 

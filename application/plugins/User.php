@@ -11,11 +11,14 @@ class UserPlugin extends Yaf_Plugin_Abstract {
        //print_r(Yaf_Application::app()->getModules());
        if(Yaf_Session::getInstance()->get("username"))
        {
-          echo "亲爱的用户 ".Yaf_Session::getInstance()->get("username")." 你好<br>";
+          //echo "亲爱的用户 ".Yaf_Session::getInstance()->get("username")." 你好<br>";
        }
        else if ($request->getControllerName() == "User"){
-       } else {
-          header("Location:/user");
+       }
+       else if ($request->getControllerName() == "Admin"){
+       }
+       else {
+          //header("Location:/user");
        }
     }
 }

@@ -8,12 +8,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet" type="text/css" href="/public/lib/bootstrap/css/bootstrap.css">
-    
-    <link rel="stylesheet" type="text/css" href="/public/stylesheets/theme.css">
-    <link rel="stylesheet" href="/public/lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.css">
 
-    <script src="/public/lib/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="/lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 
     <!-- Demo page code -->
 
@@ -35,17 +34,25 @@
         }
     </style>
 
+    <script src="/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script>
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="/public/lib/font-awesome/docs/assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/lib/font-awesome/docs/assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/public/lib/font-awesome/docs/assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/public/lib/font-awesome/docs/assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/public/lib/font-awesome/docs/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="/lib/font-awesome/docs/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/lib/font-awesome/docs/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/lib/font-awesome/docs/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/lib/font-awesome/docs/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/lib/font-awesome/docs/assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
 
   <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
@@ -59,7 +66,7 @@
         <div class="navbar-inner">
                 <ul class="nav pull-right">
                     
-                    <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">设置</a></li>
+                    <li><a href="/admin" class="hidden-phone visible-tablet visible-desktop" role="button">设置</a></li>
                     <li id="fat-menu" class="dropdown">
                         <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-user"></i>管理员
@@ -67,38 +74,45 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a tabindex="-1" href="#">我的帐号</a></li>
+                            <li><a tabindex="-1" href="/admin/">我的帐号</a></li>
                             <li class="divider"></li>
-                            <li><a tabindex="-1" class="visible-phone" href="#">设置</a></li>
+                            <li><a tabindex="-1" class="visible-phone" href="/admin">设置</a></li>
                             <li class="divider visible-phone"></li>
-                            <li><a tabindex="-1" href="/index/logout/">退出</a></li>
+                            <li><a tabindex="-1" href="/admin/logout/">退出</a></li>
                         </ul>
                     </li>
-                    
+
                 </ul>
-                <a class="brand" href="index.html"><span class="first">后台操作中心</span></a>
+                <a class="brand" href="/admin"><span class="first">后台操作中心</span></a>
         </div>
     </div>
     <div class="sidebar-nav">
-        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>操作面板</a>
+        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>商品操作面板</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
-            <li <?php if(isset($this->layout['action'])){echo "class='active'";}?>><a href="/bulletin/">操作</a></li>
+            <li <?php if(isset($this->layout['action'])){echo "class='active'";}?>><a href="/product/">商品列表</a></li>
+            <li <?php if(isset($this->layout['action'])){echo "class='active'";}?>><a href="/product/">商品添加</a></li>
         </ul>
         <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>管理员设置</a>
         <ul id="accounts-menu" class="nav nav-list collapse in">
             <li <?php if(isset($this->layout['admin'])){echo "class='active'";}?>><a href="/admin/">管理员列表</a></li>
             <li <?php if(isset($this->layout['add'])){echo "class='active'";}?>><a href="/admin/add/">添加管理员</a></li>
         </ul>
-    </div>
-        <?php
-        echo $this->content;
-        ?>       
-    <script src="/public/lib/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
-        $("[rel=tooltip]").tooltip();
-        $(function() {
-            $('.demo-cancel-click').click(function(){return false;});
-        });
-    </script>
-  </body>
+     </div>
+
+     <div class="content">
+        <div class="header">
+           <div class="stats">
+              <p class="stat"><span class="number">2014</span>年</p>
+              <p class="stat"><span class="number">05</span>月</p>
+              <p class="stat"><span class="number">25</span>日</p>
+           </div>
+
+           <h1 class="page-title">欢迎页</h1>
+        </div>
+
+        <?php echo $this->content; ?>
+     </div>
+
+   </body>
 </html>
+
