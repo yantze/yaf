@@ -16,11 +16,11 @@
 
 <script src="/js/forp.min.js"></script>
 <script>
-   (function($) {
+   /*(function($) {
       $(".forp")
       .forp({
          stack : <?php echo json_encode(forp_dump()); ?>,
          //mode : "fixed"
       })
-   })(jMicro);
+   })(jMicro);*/
 </script>
