@@ -1,0 +1,42 @@
+<?php require "head.html"; ?>
+<?php require "side.html"; ?>
+
+<div class="content">
+    <div class="header">
+        <div class="stats">
+            <p class="stat"><span class="number">2014</span>年</p>
+            <p class="stat"><span class="number">05</span>月</p>
+            <p class="stat"><span class="number">25</span>日</p>
+        </div>
+        <h1 class="page-title">欢迎页</h1>
+    </div>
+    <div class="row-fluid">
+        <div class="dialog">
+            <div class="block">
+                <p class="block-heading">管理员</p>
+                <div class="block-body">
+                    <p>欢迎使用购物车系统</p>
+                    <?php if($isLogin){ ?>
+                    <p>登录成功</p>
+                    <?php }else{ ?>
+                    <p><a href="/admin/login">请登录</a></p>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+                $('.demo-cancel-click').click(function(){return false;});
+                });
+        function EnterPress(e){
+            var e = e || window.event;
+            if(e.keyCode == 13){
+                $('#login').click();
+            }
+        }
+    </script>
+
+</div>
+<?php require "foot.html"; ?>

@@ -1,0 +1,40 @@
+<?php require "head.html"; ?>
+<?php require "side.html"; ?>
+
+<div class="content">
+    <div class="header">
+        <div class="stats">
+            <p class="stat"><span class="number">2014</span>年</p>
+            <p class="stat"><span class="number">05</span>月</p>
+            <p class="stat"><span class="number">25</span>日</p>
+        </div>
+        <h1 class="page-title">欢迎页</h1>
+    </div>
+    <ul class="breadcrumb">
+        <li><a href="/admin">管理员设置</a> <span class="divider">/</span></li>
+        <li class="active">添加管理员</li>
+    </ul>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="well">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#">填写信息</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane active in" id="home"> 
+                        <form action="" method=POST>
+                            <input name="username" type="text" placeholder="username">
+                            <input name="password" type="password" placeholder="password">
+                            <input name="repassword" type="password" placeholder="repassword">
+                            <input name="email" type="text" placeholder="email">
+                            <input type="submit" class="btn btn-primary " value="add">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php require "foot.html"; ?>

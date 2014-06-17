@@ -1,0 +1,56 @@
+<?php require "head.html"; ?>
+<?php require "side.html"; ?>
+
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">商品修改</h1>
+    </div>
+    <ul class="breadcrumb">
+        <li><a href="/product">商品操作</a> <span class="divider">/</span></li>
+        <li class="active">添加商品</li>
+    </ul>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="well">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#">填写信息</a></li>
+                </ul>
+
+                <p>增加商品</p>
+                <form action="/product/add" method=POST>
+                    <input name="product_name" type="text" placeholder="product_name">
+                    <input name="money" type="text" placeholder="money">
+                    <input name="amount" type="text" placeholder="amount">
+                    <input name="money_type" type="text" placeholder="money_type">
+                    <input name="category_id" type="text" placeholder="category">
+                    <input type="submit" class="btn btn-primary" value="add">
+                </form>
+
+                <p>修改商品</p>
+                <form action="/product/edit" method=POST>
+                    <input name="product_name" type="text" placeholder="product_name">
+                    <input name="money" type="text" placeholder="money">
+                    <input name="amount" type="text" placeholder="amount">
+                    <input name="money_type" type="text" placeholder="money_type">
+                    <input name="category_id" type="text" placeholder="category">
+                    <input type="submit" class="btn btn-primary" value="change">
+                </form>
+
+                <p>删除商品</p>
+                <form action="/product/del" method=POST>
+                    <input name="product_name" type="text" placeholder="product_name">
+                    <input type="submit" class="btn btn-primary" value="delete">
+                </form>
+
+                <p>查找商品</p>
+                <form action="/product/get" method=GET>
+                    <input name="product_name" type="text" placeholder="product_name">
+                    <input type="submit" class="btn btn-primary" value="get">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php require "foot.html"; ?>

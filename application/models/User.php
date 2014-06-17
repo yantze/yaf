@@ -12,6 +12,7 @@
       public function loginUser($username, $password)
       {
          $params = array(
+            "user_uuid",
             "password",
             "email",
             "create_time"
@@ -21,17 +22,16 @@
          );
          $result = $this->_db->select($this->_table, $params ,$whereis );
          if($result==null)
-         {
             return false;
-         }
          else if ( $result[0]['password'] == ($password) )
-            return true;
+            return $result[0]['user_uuid'];
          else
             return false;
       }
       public function select($username)
       {
          $params = array(
+            "user_uuid",
             "password",
             "email",
             "create_time"

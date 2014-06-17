@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error</title>
+    </head>
+    <body>
+
+        <h1><?php echo $this->error;?></h1>
+        <?php echo ($exception->getMessage()) ? '<pre>'.$exception->getMessage().'</pre>' : ''; ?>
+        <?php echo ($exception->getTraceAsString()) ? '<pre>'.$exception->getTraceAsString().'</pre>' : ''; ?>
+    </body>
+</html>

@@ -86,33 +86,6 @@
                 <a class="brand" href="/admin"><span class="first">后台操作中心</span></a>
         </div>
     </div>
-    <div class="sidebar-nav">
-        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>商品操作面板</a>
-        <ul id="dashboard-menu" class="nav nav-list collapse in">
-            <li <?php if(isset($this->layout['action'])){echo "class='active'";}?>><a href="/product/">商品列表</a></li>
-            <li <?php if(isset($this->layout['action'])){echo "class='active'";}?>><a href="/product/">商品添加</a></li>
-        </ul>
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>管理员设置</a>
-        <ul id="accounts-menu" class="nav nav-list collapse in">
-            <li <?php if(isset($this->layout['admin'])){echo "class='active'";}?>><a href="/admin/">管理员列表</a></li>
-            <li <?php if(isset($this->layout['add'])){echo "class='active'";}?>><a href="/admin/add/">添加管理员</a></li>
-        </ul>
-     </div>
 
-     <div class="content">
-        <div class="header">
-           <div class="stats">
-              <p class="stat"><span class="number">2014</span>年</p>
-              <p class="stat"><span class="number">05</span>月</p>
-              <p class="stat"><span class="number">25</span>日</p>
-           </div>
 
-           <h1 class="page-title">欢迎页</h1>
-        </div>
-
-        <?php echo $this->content; ?>
-     </div>
-
-   </body>
-</html>
 

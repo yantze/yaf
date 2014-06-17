@@ -1,8 +1,9 @@
 <?php
+   //require "../yaf_classes.php";
    Class OrderModel
    {
       protected $_table = "shop_order";
-      protected $_index = "order_serial";
+      protected $_index = "order_id";
 
       public function __construct()
       {
@@ -23,17 +24,20 @@
 
          return $result==null?false:$result;
       }
-      public function selectAll()
+      public function selectAll($where)
       {
          $params = array(
             "order_id",
-            "user_uuid",
+            "product_name",
             "product_uuid",
-            "reg_time",
-            "order_serial"
+            "money",
+            "reg_time"
          );
-         $whereis = array();
-         $result = $this->_db->select($this->_table, $params, $whereis );
+         $whereis = array(
+            "order_serial"=>$where
+         );
+         //这里的cart是一个视图，集合了当前table——index和product的表中数据
+         $result = $this->_db->select( "cart" , $params, $whereis );
 
          return $result==null?false:$result;
       }

@@ -2,7 +2,7 @@
    Class ProductModel
    {
       protected $_table = "shop_product";
-      protected $_index = "product_name";
+      protected $_index = "product_uuid";
 
       public function __construct()
       {

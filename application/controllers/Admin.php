@@ -4,15 +4,25 @@
    {
       public function init(){
          //使用layout页面布局
-         $this->_layout = new LayoutPlugin('admin/admin.html');
+         /*$this->_layout = new LayoutPlugin('admin/admin.html');
          $this->dispatcher = Yaf_Registry::get("dispatcher");
-         $this->dispatcher->registerPlugin($this->_layout);
+         $this->dispatcher->registerPlugin($this->_layout);*/
 
          $this->_user = new AdminModel();
       }
 
       public function indexAction()
       {
+         $this->getView()->assign("action",strtolower(
+            $this->getRequest()->getControllerName().'_'.$this->getRequest()->getActionName()));
+
+         //判断是否登陆
+         if(Yaf_Session::getInstance()->get("admin_username")){
+            $this->getView()->assign("isLogin",true);
+         } else{
+            $this->getView()->assign("isLogin",false);
+         }
+
          $this->getView()->assign("name",'yantze');
          $this->getView()->assign("content",'game,');
 
@@ -23,6 +33,9 @@
 
       public function loginAction()
       {
+         $this->getView()->assign("action",strtolower(
+            $this->getRequest()->getControllerName().'_'.$this->getRequest()->getActionName()));
+
          if($this->getRequest()->isPost())
          {
             $username = $this->getRequest()->getPost('username');
@@ -34,7 +47,7 @@
             {
                //$this->getView()->assign("content",'登陆成功！！');
                //$_SESSION['username']=$username."ddd"; //这种方式已经不使用了
-               Yaf_Session::getInstance()->set("username",$username);
+               Yaf_Session::getInstance()->set("admin_username",$username);
                //exit("登录成功！");
                $ret = $this->ret_api(0);
                exit($ret);
@@ -48,11 +61,14 @@
             }
          }
 
-         return false;
+         return true;
       }
 
       public function addAction()
       {
+         $this->getView()->assign("action",strtolower(
+            $this->getRequest()->getControllerName().'_'.$this->getRequest()->getActionName()));
+
          if($this->getRequest()->isPost()){
             $posts = $this->getRequest()->getPost();
             $posts['password'] = sha1($posts['password']);
@@ -136,11 +152,12 @@
 
       public function LogoutAction()
       {
-         unset($_SESSION['username']);
+         //unset($_SESSION['username']);
+         Yaf_Session::getInstance()->del("admin_username");
          header('Location:/admin/');
       }
 
-      public function ret_api($code)
+      public function ret_api($code=-1)
       {
          $ret=array();
          $ret[-1]['ret_type']='error_response';

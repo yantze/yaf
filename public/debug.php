@@ -1,4 +1,5 @@
 <?php
+   forp_start();
    date_default_timezone_set('Asia/Chongqing');
 
    define('APPLICATION_PATH', dirname(__FILE__).'/../');
@@ -10,4 +11,16 @@
    $application = new Yaf_Application( APPLICATION_PATH. "/conf/application.ini");
 
    $application->bootstrap()->run();
+   forp_end();
 ?>
+
+<script src="/js/forp.min.js"></script>
+<script>
+   /*(function($) {
+      $(".forp")
+      .forp({
+         stack : <?php echo json_encode(forp_dump()); ?>,
+         //mode : "fixed"
+      })
+   })(jMicro);*/
+</script>

@@ -37,10 +37,10 @@
 
          $route  = new Yaf_Route_Rewrite(
             //"/product/list/:id/:name",
-            "/product/list",
+            "/index/get",
             array(
-               "controller" => "product",
-               "action"	 => "index",
+               "controller" => "item",
+               "action"     => "get",
             )
          );
          Yaf_Dispatcher::getInstance()->getRouter()->addRoute(

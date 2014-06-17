@@ -1,0 +1,14 @@
+<p>添加收藏</p>
+<form action="fav/add" method=POST>
+   <input name="user_uuid" type="text" placeholder="user_uuid">
+   <input name="product_uuid" type="text" placeholder="product_uuid">
+   <input name="comment" type="text" placeholder="commment">
+   <input type="submit" value="add">
+</form>
+
+<p>删除收藏</p>
+<form action="fav/del" method=POST>
+   <input name="fav_id" type="text" placeholder="fav_id">
+   
+   <input name="submit" type="submit" value="delete">
+</form>

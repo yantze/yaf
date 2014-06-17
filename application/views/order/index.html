@@ -1,0 +1,12 @@
+<p>添加购物车</p>
+<form action="/order/add" method=POST>
+   <input name="user_uuid" type="text" placeholder="user_uuid">
+   <input name="product_uuid" type="text" placeholder="product_uuid">
+   <input type="submit" value="add">
+</form>
+
+<p>删除购物车商品</p>
+<form action="/order/del" method=POST>
+   <input name="order_id" type="text" placeholder="order_id">
+   <input type="submit" value="delete">
+</form>

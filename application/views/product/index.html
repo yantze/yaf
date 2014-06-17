@@ -1,0 +1,37 @@
+<?php require "head.html"; ?>
+<?php require "side.html"; ?>
+
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">商品修改</h1>
+    </div>
+    <ul class="breadcrumb">
+        <li><a href="/product">商品操作</a> <span class="divider">/</span></li>
+        <li class="active">商品列表</li>
+    </ul>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="well">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#">列表信息</a></li>
+                </ul>
+
+                <table>
+                <?php
+                foreach($productData as $v){
+                    echo "<tr>".
+                    "<td>商品名：".$v['product_name']."</td>".
+                    "<td>价格：".$v['money']."</td>".
+                    "<td>数量：".$v['amount']."</td>".
+                    "<td>注册时间：".$v['reg_time']."</td>".
+                    "</tr>";
+                } ?>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php require "foot.html"; ?>

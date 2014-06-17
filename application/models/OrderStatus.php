@@ -2,7 +2,7 @@
    Class OrderStatusModel
    {
       protected $_table = "shop_order_status";
-      protected $_index = "order_id";
+      protected $_index = "order_status_id";
 
       public function __construct()
       {
@@ -12,8 +12,8 @@
       public function select($username)
       {
          $params = array(
-            "order_serial_id",
-            "order_id",
+            "order_status_id",
+            "order_serial",
             "status"
          );
          $whereis = array( $this->_index=>$username );
@@ -24,8 +24,8 @@
       public function selectAll()
       {
          $params = array(
-            "order_serial_id",
-            "order_id",
+            "order_status_id",
+            "order_serial",
             "status"
          );
          $whereis = array();

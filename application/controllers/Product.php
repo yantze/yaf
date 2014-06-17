@@ -4,23 +4,24 @@
    {
       public function init()
       {
-         $_layout = new LayoutPlugin('admin/admin.html');
-         $_dispatcher = Yaf_Registry::get("dispatcher");
-         $_dispatcher->registerPlugin($_layout);
-
          $this->_product = new ProductModel();
       }
 
       function indexAction()
       {
-         $productData = $this->_product->selectAll();
-         $this->getView()->assign("productData",$productData);
+         $this->getView()->assign("action",strtolower(
+            $this->getRequest()->getControllerName().'_'.
+            $this->getRequest()->getActionName()));
 
          return true;
       }
 
+
       function addAction()
       {
+         $this->getView()->assign("action",strtolower(
+            $this->getRequest()->getControllerName().'_'.$this->getRequest()->getActionName()));
+
          if($this->getRequest()->isPost())
          {
             $posts = $this->getRequest()->getPost();
@@ -39,6 +40,7 @@
                exit("添加商品失败");
             }
          }
+
       }
 
       function editAction()
@@ -81,6 +83,22 @@
          }else{
             exit("查找失败");
          }
+      }
+
+      function listAction()
+      {
+         $this->getView()->assign("action",strtolower(
+            $this->getRequest()->getControllerName().'_'.$this->getRequest()->getActionName()));
+
+         $productData = $this->_product->selectAll();
+         $this->getView()->assign("productData",$productData);
+
+         if ($this->getRequest()->isXmlHttpRequest()){
+            echo json_encode($productData);
+            return false;
+         }
+
+         return true;
       }
 
    }

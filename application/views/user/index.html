@@ -1,3 +1,17 @@
+<p>登陆信息</p>
+<?php
+echo "当前用户名：<br>".
+Yaf_Session::getInstance()->get("username");
+echo "<br>UUID:<br>".
+Yaf_Session::getInstance()->get("user_uuid");
+echo "<br>order_id:<br>".
+Yaf_Session::getInstance()->get("order_serial");
+?>
+
+
+
+
+
 <p>登陆</p>
 <form action="user/login" method=POST>
    <input name="username" type="text" placeholder="username">

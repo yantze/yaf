@@ -1,0 +1,14 @@
+<?php
+echo "<table>";
+   if($items){
+      foreach($items as $v){
+         echo "<tr>";
+         echo "<td>".$v['order_serial']."</td>";
+         echo "<td>".$v['status']."</td>";
+
+         echo "</tr>";
+      }
+   }
+   echo "</table>";
+?>
+

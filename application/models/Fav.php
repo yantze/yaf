@@ -26,13 +26,15 @@
       {
          $params = array(
             "fav_id",
-            "user_uuid",
+            "product_name",
+            "money",
             "product_uuid",
             "fav_time",
             "comment"
          );
          $whereis = array();
-         $result = $this->_db->select($this->_table, $params, $whereis );
+         //这里的fav是一个视图，集合了当前table——index和product的表中数据
+         $result = $this->_db->select( "fav" , $params, $whereis );
 
          return $result==null?false:$result;
       }
@@ -40,6 +42,7 @@
       public function insert($info)
       {
          $result = $this->_db->insert($this->_table, $info);
+         // print_r($this->_db->error());
 
          return $result<1?false:true;
       }
