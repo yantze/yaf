@@ -29,6 +29,35 @@
          }
       }
 
+      function categoryAction()
+      {
+         $category_id = $this->getRequest()->getQuery("id");
+         if($product_data = $this->_item->select_category($category_id)){
+            $this->getView()->assign("items", $product_data);
+         }else{
+            $this->getView()->assign("error",'查找失败');
+         }
+
+         echo $this->render("../index/search");
+
+         return false;
+      }
+
+      function searchAction()
+      {
+         $product_name = $this->getRequest()->getQuery("name");
+         if($product_data = $this->_item->select_name($product_name)){
+            $this->getView()->assign("items", $product_data);
+         }else{
+            $this->getView()->assign("error",'查找失败');
+         }
+
+         echo $this->render("../index/search");
+
+         return false;
+      }
+
+
       function addCart() { }
 
       function addFav() { }

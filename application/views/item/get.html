@@ -1,11 +1,42 @@
-<div class="content">
-    <?php
-    echo "产品名称：".$product['product_name'];
-    echo "产品价格：".$product['money'];
-    echo "<a href=/order/add?name=".$product['product_uuid'].">添加到购物车</a>";
-    echo "<a href=/fav/add?name=".$product['product_uuid'].">添加到收藏夹</a>";
+<?php include APP_PATH."application/views/head.html" ?>
 
-    ?>
+<p></p>
+<ol class="breadcrumb">
+  <li><a href="#">主页</a></li>
+  <li class="active">商品列表</li>
+</ol>
 
 
-</div>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="/images/1.png" alt="zi">
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="info">
+                    <div class="caption">
+                        <h3>洽洽瓜子</h3>
+                        <p>价格:<span class="price">900</span>元<p>
+                        <p><a href="#" class="btn btn-primary btn-sm" role="button">购买</a>
+                        <a href="#" class="btn btn-sm btn-default" role="button">收藏</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 col-sm-1"></div>
+            <div class="col-sm-10 col-md-10">
+                详细介绍
+            </div>
+        </div>
+
+    </div> <!-- /container -->
+
+<?php include APP_PATH."application/views/foot.html" ?>

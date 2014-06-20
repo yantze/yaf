@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>\\172.31.195.91\html\y\application\views\order\list.html.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v1">
+<meta name="syntax" content="coffee">
+<meta name="settings" content="use_css,pre_wrap,no_foldcolumn,expand_tabs,prevent_copy=">
+<meta name="colorscheme" content="solarized">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #839496; background-color: #002b36; }
+body { font-family: monospace; color: #839496; background-color: #002b36; }
+* { font-size: 1em; }
+.Comment { color: #586e75; font-style: italic; }
+.Title { color: #cb4b16; font-weight: bold; }
+.htmlTag { color: #586e75; }
+.htmlEndTag { color: #586e75; }
+.htmlTagName { color: #268bd2; font-weight: bold; }
+.Constant { color: #2aa198; }
+.Underlined { color: #6c71c4; }
+.htmlArg { color: #657b83; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+-->
+</script>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="htmlTag">&lt;?php include APP_PATH.</span><span class="Constant">&quot;application/views/head.html&quot;</span><span class="htmlTag"> ?&gt;</span>
+
+<span class="htmlTag">&lt;</span><span class="htmlTagName">p</span><span class="htmlTag">&gt;</span><span class="htmlEndTag">&lt;/</span><span class="htmlTagName">p</span><span class="htmlEndTag">&gt;</span>
+<span class="htmlTag">&lt;</span><span class="htmlTagName">ol</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;breadcrumb&quot;</span><span class="htmlTag">&gt;</span>
+    <span class="htmlTag">&lt;</span><span class="htmlTagName">li</span><span class="htmlTag">&gt;&lt;</span><span class="htmlTagName">a</span><span class="htmlTag"> </span><span class="htmlArg">href</span><span class="htmlTag">=</span><span class="Constant">&quot;#&quot;</span><span class="htmlTag">&gt;</span><span class="Underlined">主页</span><span class="htmlEndTag">&lt;/</span><span class="htmlTagName">a</span><span class="htmlEndTag">&gt;&lt;/</span><span class="htmlTagName">li</span><span class="htmlEndTag">&gt;</span>
+    <span class="htmlTag">&lt;</span><span class="htmlTagName">li</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;active&quot;</span><span class="htmlTag">&gt;</span>购物车<span class="htmlEndTag">&lt;/</span><span class="htmlTagName">li</span><span class="htmlEndTag">&gt;</span>
+<span class="htmlEndTag">&lt;/</span><span class="htmlTagName">ol</span><span class="htmlEndTag">&gt;</span>
+
+
+<span class="htmlTag">&lt;</span><span class="htmlTagName">div</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;container&quot;</span><span class="htmlTag">&gt;</span>
+    <span class="htmlTag">&lt;</span><span class="htmlTagName">div</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;row&quot;</span><span class="htmlTag">&gt;</span>
+        <span class="htmlTag">&lt;</span><span class="htmlTagName">div</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;panel panel-info&quot;</span><span class="htmlTag">&gt;</span>
+            <span class="htmlTag">&lt;</span><span class="htmlTagName">div</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;panel-heading&quot;</span><span class="htmlTag">&gt;</span>
+                <span class="htmlTag">&lt;</span><span class="htmlTagName">h3</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;panel-title&quot;</span><span class="htmlTag">&gt;</span><span class="Title">已选购的商品</span><span class="htmlEndTag">&lt;/</span><span class="htmlTagName">h3</span><span class="htmlEndTag">&gt;</span>
+            <span class="htmlEndTag">&lt;/</span><span class="htmlTagName">div</span><span class="htmlEndTag">&gt;</span>
+            <span class="htmlTag">&lt;</span><span class="htmlTagName">div</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;panel-body&quot;</span><span class="htmlTag">&gt;</span>
+                <span class="htmlTag">&lt;</span><span class="htmlTagName">div</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;list-group&quot;</span><span class="htmlTag">&gt;</span>
+                    <span class="htmlTag">&lt;?php</span>
+<span class="htmlTag">                    if($items){</span>
+<span class="htmlTag">                        foreach( $items as $i ) {</span>
+<span class="htmlTag">                        echo </span><span class="Constant">'</span>
+<span class="Constant">                        &lt;span class=&quot;list-group-item&quot;&gt;</span>
+<span class="Constant">                            &lt;a onclick=&quot;cart.add_fav('</span><span class="htmlTag">.</span><span class="Constant">&quot;'&quot;</span><span class="htmlTag">.$i[</span><span class="Constant">'order_id'</span><span class="htmlTag">].</span><span class="Constant">&quot;'&quot;</span><span class="htmlTag">.</span><span class="Constant">')&quot; class=&quot;btn btn-warning right js-add-fav&quot;&gt;添加到收藏夹&lt;/a&gt;</span>
+<span class="Constant">                            &lt;a href=&quot;javascript:&quot; onclick=&quot;cart.del_item('</span><span class="htmlTag">.</span><span class="Constant">&quot;'&quot;</span><span class="htmlTag">.$i[</span><span class="Constant">'order_id'</span><span class="htmlTag">].</span><span class="Constant">&quot;'&quot;</span><span class="htmlTag">.</span><span class="Constant">')&quot; class=&quot;btn right&quot;&gt;删除&lt;/a&gt;</span>
+<span class="Constant">                            &lt;h4 class=&quot;list-group-item-heading&quot;&gt;'</span><span class="htmlTag">.$i[</span><span class="Constant">'product_name'</span><span class="htmlTag">].</span><span class="Constant">'&lt;/h4&gt;</span>
+<span class="Constant">                            &lt;p class=&quot;list-group-item-text&quot;&gt;价格：&lt;lable class=&quot;price&quot;&gt;'</span><span class="htmlTag">.$i[</span><span class="Constant">'money'</span><span class="htmlTag">].</span><span class="Constant">'&lt;/label&gt;元&lt;/p&gt;</span>
+<span class="Constant">                            &lt;span class=&quot;hidden product_uuid&quot;&gt;'</span><span class="htmlTag">.$i[</span><span class="Constant">'product_name'</span><span class="htmlTag">].</span><span class="Constant">'&lt;/span&gt;</span>
+<span class="Constant">                        &lt;/span&gt;</span>
+<span class="Constant">                        '</span><span class="htmlTag">;</span>
+<span class="htmlTag">                        }</span>
+<span class="htmlTag">                    }</span>
+<span class="htmlTag">                    ?&gt;</span>
+                <span class="htmlEndTag">&lt;/</span><span class="htmlTagName">div</span><span class="htmlEndTag">&gt;</span>
+            <span class="htmlEndTag">&lt;/</span><span class="htmlTagName">div</span><span class="htmlEndTag">&gt;</span>
+        <span class="htmlEndTag">&lt;/</span><span class="htmlTagName">div</span><span class="htmlEndTag">&gt;</span>
+    <span class="htmlEndTag">&lt;/</span><span class="htmlTagName">div</span><span class="htmlEndTag">&gt;</span>
+    <span class="htmlTag">&lt;</span><span class="htmlTagName">div</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;row&quot;</span><span class="htmlTag">&gt;</span>
+        <span class="htmlTag">&lt;</span><span class="htmlTagName">span</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;col-lg-10 col-xs-10&quot;</span><span class="htmlTag">&gt;</span><span class="htmlEndTag">&lt;/</span><span class="htmlTagName">span</span><span class="htmlEndTag">&gt;</span>
+        <span class="htmlTag">&lt;</span><span class="htmlTagName">button</span><span class="htmlTag"> </span><span class="htmlArg">class</span><span class="htmlTag">=</span><span class="Constant">&quot;col-lg-2 col-xs-2 btn btn-primary&quot;</span><span class="htmlTag"> </span><span class="htmlArg">type</span><span class="htmlTag">=</span><span class="Constant">&quot;button&quot;</span><span class="htmlTag">&gt;</span>结算<span class="htmlEndTag">&lt;/</span><span class="htmlTagName">button</span><span class="htmlEndTag">&gt;</span>
+    <span class="htmlEndTag">&lt;/</span><span class="htmlTagName">div</span><span class="htmlEndTag">&gt;</span>
+
+<span class="htmlEndTag">&lt;/</span><span class="htmlTagName">div</span><span class="htmlEndTag">&gt;</span> <span class="Comment">&lt;!</span><span class="Comment">-- /container --</span><span class="Comment">&gt;</span>
+
+<span class="htmlTag">&lt;?php include APP_PATH.</span><span class="Constant">&quot;application/views/foot.html&quot;</span><span class="htmlTag"> ?&gt;</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

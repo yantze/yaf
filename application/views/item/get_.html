@@ -1,0 +1,11 @@
+<div class="content">
+    <?php
+    echo "产品名称：".$product['product_name'];
+    echo "产品价格：".$product['money'];
+    echo "<a href=/order/add?name=".$product['product_uuid'].">添加到购物车</a>";
+    echo "<a href=/fav/add?name=".$product['product_uuid'].">添加到收藏夹</a>";
+
+    ?>
+
+
+</div>

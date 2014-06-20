@@ -1,7 +1,43 @@
-<p>登陆</p>
-测试账号：demo 密码：demo
-<form action="/user/login" method=POST>
-   <input name="username" type="text" placeholder="username">
-   <input name="password" type="password" placeholder="password">
-   <input name="submit" type="submit" value="login">
-</form>
+<?php include APP_PATH."application/views/head.html" ?>
+<style type="text/css" media="">
+.js-badge{
+    display:none;
+    color:red;
+}
+</style>
+
+<ol class="breadcrumb">
+    <li><a href="#">主页</a></li>
+    <li class="active">登陆</li>
+</ol>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-xs-4">
+        </div>
+        <div class="panel panel-info col-lg-4 col-xs-4">
+            <div class="panel-heading">
+                <label class="badge right js-badge">用户名或密码错</label>
+                <h3 class="panel-title">登陆</h3>
+            </div>
+            <div class="panel-body">
+                <form name="login" method="post" action="/user/login">
+                <div class="list-group">
+                    <p class="list-group-item">
+                    <input id="username" name="username" type="text" placeholder="输入用户名:demo" />
+                    </p>
+                    <p class="list-group-item">
+                    <input id="password" name="password" type="text" placeholder="输入密码:demo" />
+                    </p>
+                    <p>
+                    <input type="button" class="btn btn-primary right js-login-btn" value="登陆" />
+                    </p>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div> <!-- /container -->
+<?php include APP_PATH."application/views/foot.html" ?>

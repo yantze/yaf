@@ -27,6 +27,42 @@
 
          return $result==null?false:$result;
       }
+      public function select_category($username)
+      {
+         $params = array(
+            "product_id",
+            "product_uuid",
+            "product_name",
+            "reg_time",
+            "money",
+            "amount",
+            "category_id"
+         );
+         $whereis = array( 
+            "AND"=>array( 'category_id'=>$username, "is_del"=>0)
+         );
+         $result = $this->_db->select($this->_table, $params ,$whereis );
+
+         return $result==null?false:$result;
+      }
+      public function select_name($username)
+      {
+         $params = array(
+            "product_id",
+            "product_uuid",
+            "product_name",
+            "reg_time",
+            "money",
+            "amount",
+            "category_id"
+         );
+         $whereis = array( 
+            "AND"=>array( 'product_name'=>$username, "is_del"=>0)
+         );
+         $result = $this->_db->select($this->_table, $params ,$whereis );
+
+         return $result==null?false:$result;
+      }
       public function selectAll()
       {
          $params = array(

@@ -5,6 +5,7 @@
       public function init()
       {
          $this->_order = new OrderModel();
+         $this->_util = new utils();
       }
 
       function indexAction()
@@ -19,9 +20,9 @@
          $posts['order_serial'] = Yaf_Session::getInstance()->get("order_serial");
 
          if($this->_order->insert($posts)){
-            exit("添加商品成功");
+            exit($this->_util->ret_json(0,"添加商品成功"));
          }else{
-            exit("添加商品失败");
+            exit($this->_util->ret_json(0,"添加商品失败"));
          }
 
          return false;
@@ -33,9 +34,9 @@
       {
          $order_id = $this->getRequest()->getQuery("name");
          if($this->_order->del($order_id)){
-            exit("删除商品成功");
+            exit($this->_util->ret_json(0,"删除商品成功"));
          }else{
-            exit("删除商品失败");
+            exit($this->_util->ret_json(0,"删除商品失败"));
          }
 
          return false;

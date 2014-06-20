@@ -131,6 +131,7 @@
       public function LogoutAction()
       {
          unset($_SESSION['username']);
+         unset($_SESSION['user_uuid']);
          header('Location:/index/');
       }
 

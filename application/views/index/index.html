@@ -1,40 +1,44 @@
-<?php include "head.html" ?>
+<?php include APP_PATH."application/views/head.html" ?>
 
-<p></p>
 <ol class="breadcrumb">
-    <li><a href="#">主页</a></li>
-    <li class="active">登陆</li>
+  <li><a href="#">主页</a></li>
+  <li class="active">商品列表</li>
 </ol>
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-lg-4 col-xs-4">
-        </div>
-        <div class="panel panel-info col-lg-4 col-xs-4">
-            <div class="panel-heading">
-                <h3 class="panel-title">登陆</h3>
-            </div>
-            <div class="panel-body">
-                <form method="post" action="/user/login">
-                <div class="list-group">
-                    <p class="list-group-item">
-                    <input name="username" type="text" placeholder="输入用户名" />
-                    <label class="badge label-warning">用户名错</label>
-                    </p>
-                    <p class="list-group-item">
-                    <input name="password" type="text" placeholder="输入密码" />
-                    <label class="badge">密码错</label>
-                    </p>
-                    <p>
-                    <label class="btn-warning">用户名demo，密码demo</label>
-                    <input type="button" class="btn btn-primary right js-login-btn" value="登陆" />
-                    </p>
-                </div>
-                </form>
+    <?php
+    foreach( $itemlist as $i )
+    {
+    echo '
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="/images/1.png" alt="zi">
+            <div class="caption">
+                <h3>'.$i['product_name'].'</h3>
+                <p>价格:<span class="price">'.$i['money'].'</span>元<p>
+                <p><a href="/order/add?name='.$i['product_uuid'].'" class="btn btn-primary btn-sm" role="button">购买</a>
+                <a href="/fav/add?name='.$i['product_uuid'].'" class="btn btn-sm btn-default" role="button">收藏</a>
+                </p>
             </div>
         </div>
     </div>
+    ';
+    }
+    ?>
 
 </div> <!-- /container -->
-<?php include "foot.html" ?>
+
+<div class="center">
+    <ul class="nav nav-justified pagination pagination-lg">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+</div>
+
+
+<?php include APP_PATH."application/views/foot.html" ?>

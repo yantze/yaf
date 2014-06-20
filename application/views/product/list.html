@@ -25,6 +25,7 @@
                     "<td>价格：".$v['money']."</td>".
                     "<td>数量：".$v['amount']."</td>".
                     "<td>注册时间：".$v['reg_time']."</td>".
+                    "<td><button class='btn' onclick='doUpload(\"img\", \"{$v['product_uuid']}\", this)'>上传</button>"."</td>".
                     "</tr>";
                 } ?>
                 </table>
@@ -33,5 +34,34 @@
         </div>
     </div>
 </div>
+<script src="/lib/jquery/jquery.upload.js"></script>
+<script>
+function doUpload(filetype, filename, select) {
+    //wait等待
+    $(select).parent().find('img').attr('src', '/manage/static/images/wait.gif');
+
+    // 上传方法
+    $.upload({
+            // 上传地址
+        url: '/product/upload',
+        // 文件域名字
+        fileName: filename,
+        // 其他表单数据
+        params: {'filetype': filetype },
+        // 上传完成后, 返回json, text
+        dataType: 'text',
+        // 上传之前回调,return true表示可继续上传
+        onSend: function() {
+            return true;
+        },
+        // 上传之后回调
+        onComplate: function(data) {
+            console.log(data);
+        }
+    });
+}
+    
+</script>
+
 
 <?php require "foot.html"; ?>

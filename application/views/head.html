@@ -73,15 +73,21 @@
         </div>
         <div class="navbar-collapse collapse navbar-inverse-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">登陆/登出</a></li>
+                <li>
+                <?php $username =  Yaf_Session::getInstance()->get("username");
+                    if (isset($username)&& $username!="") {
+                ?>
+                <a href="/user/logout">登出</a>
+                <?php }else{ ?>
+                <a href="/user/login">登陆</a>
+                <?php } ?>
+                </li>
                 <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人账户<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                    <li><a href="/user/info">基本信息</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li><a href="/user/logout">登出</a></li>
                 </ul>
                 </li>
             </ul>
@@ -93,28 +99,30 @@
         <button type="button" class="btn btn-success btn-sm">分类</button>
         <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
         <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="/item/category?id=1"><strong>休闲零食</strong></a></li>
+            <li><a href="/item/category?id=2">坚果炒货</a></li>
+            <li><a href="/item/category?id=3">肉干肉脯</a></li>
+            <li><a href="/item/category?id=4"><strong>开心零食</strong></a></li>
+            <li><a href="/item/category?id=5">糖果/巧克力</a></li>
+            <li><a href="/item/category?id=6">饼干蛋糕</a></li>
         </ul>
     </li>
     <li class="col-lg-1 col-xs-1"> </li>
     <li class="col-lg-6 col-xs-6">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="输入零食名称">
+            <input type="text" class="form-control js-search-name" placeholder="输入零食名称">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button">搜索零食</button>
+                <button class="btn btn-default js-search-btn" type="button">搜索零食</button>
             </span>
         </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
     </li>
-    <li class="col-lg-2 col-xs-2 navbar-right">
-        <button type="button" class="btn btn-sm btn-danger">购物车</button>
+    <li class="col-lg-1 col-xs-1 navbar-right">
+        <span>
+            <a href="/order/list" class="btn btn-sm btn-danger">购物车</a>
+        </span>
     </li>
 </ul>
 
 
-
-
+<p class="clearfix"></p>

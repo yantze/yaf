@@ -13,6 +13,8 @@
             $this->getRequest()->getControllerName().'_'.
             $this->getRequest()->getActionName()));
 
+            $this->getView()->assign("productData", $this->_product->SelectAll());
+
          return true;
       }
 
@@ -83,6 +85,27 @@
          }else{
             exit("查找失败");
          }
+      }
+
+      function uploadAction()
+      {
+         chdir(APP_PATH);
+         // echo getcwd();
+
+         $uploads_dir = 'public/images/product/';
+         // print_r(array_keys($_FILES));
+         //echo $_FILES['file_pic']['tmp_name'];
+         $filename = array_keys($_FILES);
+         $type = $_FILES[$filename[0]]['type'];
+         $subfix = '';
+
+         if ( $type == 'image/jpeg' ||  $type == 'image/png'  )
+         {
+            $subfix = '.jpg';
+         }
+         move_uploaded_file($_FILES[$filename[0]]['tmp_name'], $uploads_dir . $filename[0] . $subfix );
+
+         return false;
       }
 
       function listAction()

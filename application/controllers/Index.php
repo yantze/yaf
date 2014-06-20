@@ -15,10 +15,15 @@
       public function indexAction()
       {
          $site = new OptionModel();
+         $product = new ProductModel();
+
+
          $siteInfo = $site->selectAll();
+         $itemlist = $product->selectAll();
 
          $this->getView()->assign("name",$siteInfo[0]['value']);
          $this->getView()->assign("desc",$siteInfo[1]['value']);
+         $this->getView()->assign("itemlist",$itemlist);
 
          return true;
       }

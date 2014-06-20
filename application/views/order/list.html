@@ -1,16 +1,44 @@
-<?php
-echo "<table>";
-   if($items){
-      foreach($items as $v){
-         echo "<tr>";
-         echo "<td>".$v['product_name']."</td>";
-         echo "<td>".$v['money']."</td>";
-         echo "<td><a href=/order/del?name=".$v['order_id'].">删除</a>";
+<?php include APP_PATH."application/views/head.html" ?>
 
-         echo "</tr>";
-      }
-   }
-   echo "</table>";
-echo "<a href=/orderStatus/add>结算</a>";
-?>
+<p></p>
+<ol class="breadcrumb">
+    <li><a href="#">主页</a></li>
+    <li class="active">购物车</li>
+</ol>
 
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">已选购的商品</h3>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <?php
+                    if($items){
+                        foreach( $items as $i ) {
+                        echo '
+                        <span class="list-group-item">
+                            <a onclick="cart.add_fav('."'".$i['order_id']."',this".')" class="btn btn-warning right js-add-fav">添加到收藏夹</a>
+                            <a href="javascript:" onclick="cart.del_item('."'".$i['order_id']."',this".')" class="btn right">删除</a>
+                            <h4 class="list-group-item-heading">'.$i['product_name'].'</h4>
+                            <p class="list-group-item-text">价格：<lable class="price">'.$i['money'].'</label>元</p>
+                            <span class="hidden product_uuid">'.$i['product_name'].'</span>
+                        </span>
+                        ';
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <span class="col-lg-10 col-xs-10"></span>
+        <a href="/orderStatus/add" class="col-lg-2 col-xs-2 btn btn-primary" type="button">结算</a>
+    </div>
+
+</div> <!-- /container -->
+
+<?php include APP_PATH."application/views/foot.html" ?>

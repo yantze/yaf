@@ -50,11 +50,10 @@ $(function(){
          data:{username:$('#username').val(),password:$('#password').val()},
          success:function(msg){
             msg_json = $.parseJSON(msg);
-            if(msg_json.error_response) {
-               console.log(msg_json.error_response);
-               $('#err').html(msg_json.error_response.msg);
+            if(msg_json.code>0) {
+               $('#err').html(msg_json.msg);
             }
-            else if(msg_json.success_response) {
+            else {
                location.href="/admin";
             }
          }

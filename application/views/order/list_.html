@@ -1,0 +1,16 @@
+<?php
+echo "<table>";
+   if($items){
+      foreach($items as $v){
+         echo "<tr>";
+         echo "<td>".$v['product_name']."</td>";
+         echo "<td>".$v['money']."</td>";
+         echo "<td><a href=/order/del?name=".$v['order_id'].">删除</a>";
+
+         echo "</tr>";
+      }
+   }
+   echo "</table>";
+echo "<a href=/orderStatus/add>结算</a>";
+?>
+

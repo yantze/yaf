@@ -1,0 +1,46 @@
+<?php include APP_PATH."application/views/head.html" ?>
+
+<ol class="breadcrumb">
+  <li><a href="#">主页</a></li>
+  <li class="active">搜索页</li>
+</ol>
+
+
+<div class="container">
+    <?php
+    if(isset($items)){
+       foreach( $items as $i )
+       {
+       echo '
+       <div class="col-sm-6 col-md-4">
+           <div class="thumbnail">
+               <img src="/images/1.png" alt="zi">
+               <div class="caption">
+                   <h3>'.$i['product_name'].'</h3>
+                   <p>价格:<span class="price">'.$i['money'].'</span>元<p>
+                   <p><a href="/order/add?name='.$i['product_uuid'].'" class="btn btn-primary btn-sm" role="button">购买</a>
+                   <a href="/fav/add?name='.$i['product_uuid'].'" class="btn btn-sm btn-default" role="button">收藏</a>
+                   </p>
+               </div>
+           </div>
+       </div>
+       ';
+       }
+    }
+    ?>
+
+</div> <!-- /container -->
+
+<div class="center">
+    <ul class="nav nav-justified pagination pagination-lg">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+</div>
+
+
+<?php include APP_PATH."application/views/foot.html" ?>

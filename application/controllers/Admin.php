@@ -189,6 +189,6 @@
 
 
          $util = new utils();
-         return $util->ret_json($ret[$code]['ret_type'], $code, $ret[$code]['msg']);
+         return $util->ret_json($code, $ret[$code]['msg']);
       }
    }

@@ -1,14 +1,15 @@
 define(function (){
     var login = function() {
         $.post("/user/login" ,{
-            username:$(".username").val(),
-            password:$(".password").val(),
+            username:$("#username").val(),
+            password:$("#password").val(),
             type:'post'
         },function (data) {
             data = $.parseJSON(data);
-            alert(data.msg);
             if(data.code==0)
-                location.href="/user";
+                location.href="/index";
+            else if(data.code==1)
+                $(".js-badge").css("display","inline");
 
             return true;
         });

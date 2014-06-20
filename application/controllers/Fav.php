@@ -5,6 +5,7 @@
       public function init()
       {
          $this->_fav = new FavModel();
+         $this->_util = new utils();
       }
 
       function indexAction()
@@ -18,9 +19,9 @@
          $posts['user_uuid'] = Yaf_Session::getInstance()->get("user_uuid");
 
          if($this->_fav->insert($posts)){
-            exit("收藏商品成功");
+            exit($this->_util->ret_json(0,"收藏商品成功"));
          }else{
-            exit("收藏商品失败");
+            exit($this->_util->ret_json(0,"收藏商品失败"));
          }
       }
 
@@ -30,9 +31,9 @@
       {
          $fav_id = $this->getRequest()->getQuery("name");
          if($this->_fav->del($fav_id)){
-            exit("删除收藏成功");
+            exit($this->_util->ret_json(0,"删除商品成功"));
          }else{
-            exit("删除收藏失败");
+            exit($this->_util->ret_json(0,"删除商品失败"));
          }
       }
 
