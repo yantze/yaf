@@ -20,9 +20,9 @@
          $posts['order_serial'] = Yaf_Session::getInstance()->get("order_serial");
 
          if($this->_order->insert($posts)){
-            exit($this->_util->ret_json(0,"添加商品成功"));
+            $this->forward("order","list");
          }else{
-            exit($this->_util->ret_json(0,"添加商品失败"));
+            exit($this->_util->ret_json(0,"add product failed"));
          }
 
          return false;

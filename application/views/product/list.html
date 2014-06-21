@@ -18,13 +18,18 @@
                 </ul>
 
                 <table>
+                    <th>商品名</th>
+                    <th>价格</th>
+                    <th>数量</th>
+                    <th>登记时间</th>
+                    <th>上传图片</th>
                 <?php
                 foreach($productData as $v){
                     echo "<tr>".
-                    "<td>商品名：".$v['product_name']."</td>".
-                    "<td>价格：".$v['money']."</td>".
-                    "<td>数量：".$v['amount']."</td>".
-                    "<td>注册时间：".$v['reg_time']."</td>".
+                    "<td>".$v['product_name']."</td>".
+                    "<td>".$v['money']."</td>".
+                    "<td>".$v['amount']."</td>".
+                    "<td>".$v['reg_time']."</td>".
                     "<td><button class='btn' onclick='doUpload(\"img\", \"{$v['product_uuid']}\", this)'>上传</button>"."</td>".
                     "</tr>";
                 } ?>

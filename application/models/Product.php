@@ -56,8 +56,13 @@
             "amount",
             "category_id"
          );
+         // "AND"=>array( 'product_name'=>$username, "is_del"=>0)
+         $username = '%'.$username.'%';
          $whereis = array( 
-            "AND"=>array( 'product_name'=>$username, "is_del"=>0)
+            "is_del"=>0,
+            "LIKE"=>array(
+               'product_name'=>$username
+            )
          );
          $result = $this->_db->select($this->_table, $params ,$whereis );
 

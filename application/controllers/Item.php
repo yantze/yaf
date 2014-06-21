@@ -22,11 +22,12 @@
       {
          $product_name = $this->getRequest()->getQuery("name");
          if($item = $this->_item->select($product_name)){
-            $this->getView()->assign("product", $item[0]);
-            return true;
+            $this->getView()->assign("item", $item[0]);
          }else{
             exit("查找失败");
          }
+
+         return true;
       }
 
       function categoryAction()
