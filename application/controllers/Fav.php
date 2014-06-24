@@ -19,9 +19,22 @@
          $posts['user_uuid'] = Yaf_Session::getInstance()->get("user_uuid");
 
          if($this->_fav->insert($posts)){
-            exit($this->_util->ret_json(0,"收藏商品成功"));
+            if( $this->getRequest()->isXmlHttpRequest() ){
+               exit($this->_util->ret_json(1,"收藏商品成功"));
+            }
+
+            $this->forward("index", "fav", "list" );
+            return false;
+
          }else{
-            exit($this->_util->ret_json(0,"收藏商品失败"));
+            if($posts['user_uuid']==NULL)
+            {
+               $this->forward("index", "user", "login" );
+               return false;
+            }
+            if( $this->getRequest()->isXmlHttpRequest() ){
+               exit($this->_util->ret_json(-1,"收藏商品失败"));
+            }
          }
       }
 
@@ -31,9 +44,9 @@
       {
          $fav_id = $this->getRequest()->getQuery("name");
          if($this->_fav->del($fav_id)){
-            exit($this->_util->ret_json(0,"删除商品成功"));
+            exit($this->_util->ret_json(2,"删除商品成功"));
          }else{
-            exit($this->_util->ret_json(0,"删除商品失败"));
+            exit($this->_util->ret_json(-2,"删除商品失败"));
          }
       }
 

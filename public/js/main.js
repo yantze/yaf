@@ -6,7 +6,8 @@ require.config({
         "underscore": "underscore-min",
         "math": "../js/math",
         "login": "../js/login",
-        "cart": "../js/cart"
+        "cart": "../js/cart",
+        "fav": "../js/fav"
     },
     //对于那些非AMD规范的js需要定义它们的特征
     shim: {
@@ -43,4 +44,10 @@ require(['jquery','login'], function ($, lg){
 var cart = {};
 require(['jquery','cart'], function ($, ct){
     cart = ct;
+});
+
+//fav
+var fav = {};
+require(['jquery','fav'], function ($, fv){
+    fav = fv;
 });

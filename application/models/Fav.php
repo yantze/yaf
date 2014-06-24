@@ -22,7 +22,7 @@
 
          return $result==null?false:$result;
       }
-      public function selectAll()
+      public function selectAll($where)
       {
          $params = array(
             "fav_id",
@@ -32,7 +32,7 @@
             "fav_time",
             "comment"
          );
-         $whereis = array();
+         $whereis = array("user_uuid"=>$where);
          //这里的fav是一个视图，集合了当前table——index和product的表中数据
          $result = $this->_db->select( "fav" , $params, $whereis );
 

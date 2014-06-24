@@ -20,9 +20,19 @@
          $posts['order_serial'] = Yaf_Session::getInstance()->get("order_serial");
 
          if($this->_order->insert($posts)){
+            if($this->getRequest()->isXmlHttpRequest()){
+               exit($this->_util->ret_json(1,"添加商品成功"));
+            }
             $this->forward("order","list");
          }else{
-            exit($this->_util->ret_json(0,"add product failed"));
+            if($this->getRequest()->isXmlHttpRequest()){
+               exit($this->_util->ret_json(-1,"添加商品失败"));
+            }
+            if($posts['user_uuid']==NULL)
+            {
+               $this->forward("index", "user", "login" );
+               return false;
+            }
          }
 
          return false;

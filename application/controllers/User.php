@@ -132,6 +132,7 @@
       {
          unset($_SESSION['username']);
          unset($_SESSION['user_uuid']);
+         unset($_SESSION['order_serial']);
          header('Location:/index/');
       }
 
