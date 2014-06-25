@@ -21,9 +21,7 @@ require.config({
     }
 });
 
-
-
-
+//这里是加载各种模块
 require(['math'], function (math){
     console.log(math.add(3,3));
 });
