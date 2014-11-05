@@ -45,3 +45,7 @@ yaf学习的一些思路：http://achun.iteye.com/blog/1473126
 YafUse项目给了我很大的帮助：https://www.github.com/melonwool/YafUse/
 
 yaf的api：http://yaf.laruence.com/manual/index.html
+
+数据库设计上面主要有课本上的一些知识
+
+浅谈数据库设计技巧：http://www.knowsky.com/4937.html
