@@ -1,4 +1,9 @@
 <?php
+/*
+ * name: yaf所有函数名
+ *
+ * 方便非IDE编辑器代码补全
+ */
 final class Yaf_Application { 
 	/* constants */
 

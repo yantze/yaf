@@ -8,7 +8,115 @@
 前端用bootstrap3和yeti主题编写
 
 demo: http://cartbyyaf.sinaapp.com/
-sae的路由没有做好，只能浏览首页。
+
+##快速开始
+目录结构
+
+对于Yaf的应用, 都应该遵循类似下面的目录结构.
+
+例 3.1. 一个典型的目录结构
+
+
++ public
+  |- index.php //入口文件
+  |- .htaccess //重写规则    
+  |+ css
+  |+ img
+  |+ js
++ conf
+  |- application.ini //配置文件   
++ application
+  |+ controllers
+     |- Index.php //默认控制器
+  |+ views    
+     |+ index   //控制器
+        |- index.phtml //默认视图
+  |+ modules //其他模块
+  |+ library //本地类库
+  |+ models  //model目录
+  |+ plugins //插件目录
+
+
+
+入口文件
+
+入口文件是所有请求的入口, 一般都借助于rewrite规则, 把所有的请求都重定向到这个入口文件.
+例 3.2. 一个经典的入口文件public/index.php
+
+
+<?php
+define("APP_PATH",  realpath(dirname(__FILE__) . '/../')); /* 指向public的上一级 */
+$app  = new Yaf_Application(APP_PATH . "/conf/application.ini");
+$app->run();
+
+    
+
+
+重写规则
+
+除非我们使用基于query string的路由协议(Yaf_Route_Simple, Yaf_Route_Supervar), 否则我们就需要使用WebServer提供的Rewrite规则, 把所有这个应用的请求, 都定向到上面提到的入口文件.
+
+例 3.3. Apache的Rewrite (httpd.conf)
+.htaccess
+```
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php
+```
+当然也可以写在httpd.conf[option]
+```
+DocumentRoot "path/public" #需要定位到本项目的public文件夹
+<Directory "path/public">
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule .* index.php
+</Directory>
+```
+
+
+####Nginx的Rewrite (nginx.conf)
+```
+root path/public #需要定位到本项目的public文件夹
+location / {
+    try_files $uri $uri/ /index.php;
+}
+```
+
+
+####Lighttpd的Rewrite (lighttpd.conf)
+```
+$HTTP["host"] =~ "(www.)?domain.com$" {
+  url.rewrite = (
+     "^/(.+)/?$"  => "/index.php/$1",
+  )
+}
+```
+
+
+####SAE的Rewrite (config.yaml)
+```
+name: your_app_name
+version: 1
+handle:
+    - rewrite: if(path ~ "^(?!public/)(.*)") goto "/public/$1"
+    - rewrite: if(!is_file()) goto "/public/index.php"
+```
+
+或者在SAE面板
+appconfig->rewrite->高级设置->直接在大框框下填入下面的内容->保存
+```
+    - rewrite: if(path ~ "^(?!public/)(.*)") goto "/public/$1"
+    - rewrite: if(!is_file()) goto "/public/index.php"
+```
+[注意]
+每种Server要启用Rewrite都需要特别设置, 如果对此有疑问.. RTFM
+
+###运行
+
+在浏览器输入
+http://www.yourhostname.com/index.php
+
+
 
 yaf
 ===
