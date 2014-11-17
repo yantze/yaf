@@ -14,7 +14,7 @@ sae不支持视图，导致不能看到购物车的内容.有时间再改吧.
 
 ##快速开始
 ===
-目录结构
+####目录结构
 
 对于Yaf的应用, 都应该遵循类似下面的目录结构.
 
@@ -22,46 +22,37 @@ sae不支持视图，导致不能看到购物车的内容.有时间再改吧.
 
 ```
 + public
-  |- index.php //入口文件
-  |- .htaccess //重写规则    
-  |+ css
-  |+ img
-  |+ js
+|- index.php //入口文件
+|- .htaccess //重写规则    
+|+ css
+|+ img
+|+ js
 + conf
-  |- application.ini //配置文件   
+|- application.ini //配置文件   
 + application
-  |+ controllers
-     |- Index.php //默认控制器
-  |+ views    
-     |+ index   //控制器
-        |- index.phtml //默认视图
-  |+ modules //其他模块
-  |+ library //本地类库
-  |+ models  //model目录
-  |+ plugins //插件目录
-  ```
+|+ controllers
+ |- Index.php //默认控制器
+|+ views    
+ |+ index   //控制器
+  |- index.phtml //默认视图
+|+ modules //其他模块
+|+ library //本地类库
+|+ models  //model目录
+|+ plugins //插件目录
+```
 
 
 
-入口文件
+####入口文件
 
 入口文件是所有请求的入口, 一般都借助于rewrite规则, 把所有的请求都重定向到这个入口文件.
-例 3.2. 一个经典的入口文件public/index.php
 
 
-<?php
-define("APP_PATH",  realpath(dirname(__FILE__) . '/../')); /* 指向public的上一级 */
-$app  = new Yaf_Application(APP_PATH . "/conf/application.ini");
-$app->run();
-
-    
-
-
-重写规则
+####重写规则
 
 除非我们使用基于query string的路由协议(Yaf_Route_Simple, Yaf_Route_Supervar), 否则我们就需要使用WebServer提供的Rewrite规则, 把所有这个应用的请求, 都定向到上面提到的入口文件.
 
-例 3.3. Apache的Rewrite (httpd.conf)
+####Apache的Rewrite (httpd.conf)
 .htaccess
 ```
 RewriteEngine On
@@ -165,5 +156,5 @@ yaf的api：http://yaf.laruence.com/manual/index.html
 浅谈数据库设计技巧：http://www.knowsky.com/4937.html
 
 最终结果：
-![home](http://github.com/yantze/yaf/raw/master/docs/homepage-Screenshot 2014-11-16 04.24.04.png)
-![backpabe](http://github.com/yantze/yaf/raw/master/docs/backpage-Screenshot 2014-11-16 04.24.42.png)
+![home](https://github.com/yantze/yaf/raw/master/docs/homepage-Screenshot 2014-11-16 04.24.04.png)
+![backpabe](https://github.com/yantze/yaf/raw/master/docs/backpage-Screenshot 2014-11-16 04.24.42.png)
