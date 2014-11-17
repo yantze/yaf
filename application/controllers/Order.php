@@ -23,7 +23,13 @@
             if($this->getRequest()->isXmlHttpRequest()){
                exit($this->_util->ret_json(1,"添加商品成功"));
             }
-            $this->forward("order","list");
+            // $this->forward("order","list");
+            $this->redirect("/order/list");
+            /*
+             * 这里这两种方法(forward,redirect)都各自有弊端
+             * forward导致重复添加商品
+             * redirect导致修改路由的时候，这里要重新修改
+             */
          }else{
             if($this->getRequest()->isXmlHttpRequest()){
                exit($this->_util->ret_json(-1,"添加商品失败"));

@@ -25,6 +25,8 @@ define(function (){
                 del_item(name, sel);
             }
         });
+        //这里是为了防止用户刷新的时候，重新添加一遍商品
+        history.replaceState(null, null, "/order/list");
 
         return false;
     };

@@ -23,7 +23,8 @@
                exit($this->_util->ret_json(1,"收藏商品成功"));
             }
 
-            $this->forward("index", "fav", "list" );
+            // $this->forward("index", "fav", "list" );
+            $this->redirect("/fav/list");
             return false;
 
          }else{

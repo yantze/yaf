@@ -9,14 +9,18 @@
 
 demo: http://cartbyyaf.sinaapp.com/
 
+sae不支持视图，导致不能看到购物车的内容.有时间再改吧.
+
+
 ##快速开始
+===
 目录结构
 
 对于Yaf的应用, 都应该遵循类似下面的目录结构.
 
-例 3.1. 一个典型的目录结构
+一个典型的目录结构
 
-
+```
 + public
   |- index.php //入口文件
   |- .htaccess //重写规则    
@@ -35,6 +39,7 @@ demo: http://cartbyyaf.sinaapp.com/
   |+ library //本地类库
   |+ models  //model目录
   |+ plugins //插件目录
+  ```
 
 
 

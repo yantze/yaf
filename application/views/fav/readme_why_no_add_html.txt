@@ -1,0 +1,5 @@
+致初识mvc者：
+
+因为在controller里面的fav.php里面添加了addaction这个函数，本来它会自动渲染这个目录下面的add.html文件，但是我在里面添加了forward或者redirect函数，导致，在addaction执行完成后，自动转向其它的页面文件。
+
+yantze
