@@ -20,7 +20,7 @@
             "amount",
             "category_id"
          );
-         $whereis = array( 
+         $whereis = array(
             "AND"=>array( $this->_index=>$username, "is_del"=>0)
          );
          $result = $this->_db->select($this->_table, $params ,$whereis );

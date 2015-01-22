@@ -88,7 +88,7 @@
       }*/
 
       /*public function _initSmarty(Yaf_Dispatcher $dispatcher) {
-         // init smarty view engine 
+         // init smarty view engine
          Yaf_Loader::import("Smarty/Adapter.php");
          $smarty = new Smarty_Adapter(null, Yaf_Application::app()->getConfig()->smarty);
          $dispatcher->setView($smarty);

@@ -14,6 +14,8 @@ yaf+opcache for mvc+orm to api
 
 使用了memcached和php的memcached扩展，添加session
 
+也可以用forp做性能测试，在public/index_forp.php
+
 [注意]使用opcache的时候，它会缓存php为静态，debug的时候，最好关闭
 
 
@@ -27,7 +29,7 @@ sae不支持视图，导致不能看到购物车的内容.有时间再改吧.
 
 
 
-可以按照以下步骤来部署和运行程序:
+可以按照以下步骤来部署和运行程序(SAE已经内置，不需要自己安装):
 ```
 1.请确保机器localhost已经安装了Yaf扩展框架, 并且已经加载入PHP;(sae不用安装)
 2.把yaf目录Copy到Webserver的DocumentRoot目录下;
@@ -142,6 +144,8 @@ yaf的api：http://yaf.laruence.com/manual/index.html
 
 浅谈数据库设计技巧：http://www.knowsky.com/4937.html
 
-最终结果：
+sae:sina app engine
+
+最终效果：
 ![home](https://github.com/yantze/yaf/raw/master/docs/homepage-Screenshot 2014-11-16 04.24.04.png)
 ![backpabe](https://github.com/yantze/yaf/raw/master/docs/backpage-Screenshot 2014-11-16 04.24.42.png)

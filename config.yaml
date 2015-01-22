@@ -1,0 +1,6 @@
+name: cartbyyaf
+version: 1
+handle:
+
+- rewrite: if(path ~ "^(?!public/)(.*)") goto "/public/$1"
+- rewrite: if(!is_file()) goto "/public/index.php"
