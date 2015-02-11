@@ -1,26 +1,29 @@
-##购物车网站
+#购物车
 yaf+opcache for mvc+orm to api
 
-用户有购买收藏等基本操作，网站后台有商品增删查改上传图片基本操作.
+讲解比较细,可以当作学习yaf的入门项目,里面有很多的扩展,默认关闭
 
-前端使用AMD规范的requirejs，并且使用yeti主题的bootstrap前端响应式框架，支持手机浏览。
+前端使用requirejs，使用yeti主题的bootstrap前端响应式框架，支持手机浏览。
 
+集成smarty和twig模板引擎，后来没有用，暂时注释
 
-集成好smarty和twig模板引擎，后来没有用，暂时注释
-
-使用ORM框架Medoo
-
-开启yaf的Session管理
-
-使用memcached和php的memcached扩展，添加session
-
-也可以用forp做性能测试，在public/index_forp.php
 
 [注意]使用opcache的时候，它会缓存php为静态，debug的时候，最好关闭
 
 
 
 DEMO: http://cartbyyaf.sinaapp.com/
+
+##涉及技术
+前端:
+requirejs:模块化和异步加载
+bootstrap,yeti:响应式框架,支持手机访问,yeti主题
+forp:页面响应性能,访问index_forp.php
+后端:
+smarty/twig:php模板引擎,默认关闭
+memcached:kv快速存取,默认关闭
+medoo:orm数据库半框架,library/Db.php
+
 
 
 ##快速开始
@@ -54,28 +57,6 @@ extension=yaf.so
 
 对于Yaf的应用, 都应该遵循类似下面的目录结构.
 
-一个典型的目录结构
-
-```
-+ public
-  |- index.php //入口文件
-  |- .htaccess //重写规则
-  |+ css
-  |+ img
-  |+ js
-+ conf
-  |- application.ini //配置文件
-+ application
-  |+ controllers
-     |- Index.php //默认控制器
-  |+ views    
-     |+ index   //控制器
-     |- index.phtml //默认视图
-  |+ modules //其他模块
-  |+ library //本地类库
-  |+ models  //model目录
-  |+ plugins //插件目录
-```
 本项目的目录说明
 ```
 + public

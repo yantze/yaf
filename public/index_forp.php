@@ -1,4 +1,5 @@
 <?php
+   // 用forp做性能测试，在public/index_forp.php
    forp_start();
    date_default_timezone_set('Asia/Chongqing');
 
