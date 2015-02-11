@@ -13,6 +13,7 @@ DEMO: http://cartbyyaf.sinaapp.com/
 - requirejs:模块化和异步加载
 - bootstrap,yeti:响应式框架,支持手机访问,yeti主题
 - forp:页面响应性能,访问index_forp.php
+
 ####后端
 - smarty/twig:php模板引擎,默认关闭
 - memcached:kv快速存取,默认关闭
