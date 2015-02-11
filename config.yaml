@@ -1,5 +1,5 @@
 name: cartbyyaf
-version: 1
+version: 2
 handle:
 
 - rewrite: if(path ~ "^(?!public/)(.*)") goto "/public/$1"
