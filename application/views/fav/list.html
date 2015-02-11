@@ -20,7 +20,7 @@
                         foreach( $items as $i ) {
                         echo '
                         <span class="list-group-item">
-                            <a onclick="fav.add_cart('."'".$i['product_uuid']."',this".')" class="btn btn-warning right js-add-cart">添加到购物车</a>
+                            <a onclick="fav.add_cart('."'".$i['product_uuid']."',this".')" class="btn btn-success right js-add-cart">添加到购物车</a>
                             <a href="javascript:" onclick="fav.del_item('."'".$i['fav_id']."',this".')" class="btn right">删除</a>
                             <h4 class="list-group-item-heading">'.$i['product_name'].'</h4>
                             <p class="list-group-item-text">价格：<lable class="price">'.$i['money'].'</label>元</p>

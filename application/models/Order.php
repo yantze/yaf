@@ -26,19 +26,24 @@
       }
       public function selectAll($where)
       {
+         //实现左连接表查询
+         $join = array(
+            "[>]shop_product"=>"product_uuid"
+         );
          $params = array(
             "order_id",
             "product_name",
             "product_uuid",
             "money",
-            "reg_time"
+            "shop_order.reg_time"
          );
          $whereis = array(
             "order_serial"=>$where
          );
-         //这里的cart是一个视图，集合了当前table——index和product的表中数据
-         $result = $this->_db->select( "cart" , $params, $whereis );
 
+         $result = $this->_db->select( "shop_order" , $join, $params, $whereis );
+         // print_r($this->_db->error());
+         // print_r($result);
          return $result==null?false:$result;
       }
 

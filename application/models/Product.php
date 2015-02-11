@@ -1,4 +1,7 @@
 <?php
+   /*
+    * 这里要说明的是,username这个变量在购物车中是商品的名称,当时为了统一,就没有更改变量名
+    */
    Class ProductModel
    {
       protected $_table = "shop_product";
@@ -38,7 +41,7 @@
             "amount",
             "category_id"
          );
-         $whereis = array( 
+         $whereis = array(
             "AND"=>array( 'category_id'=>$username, "is_del"=>0)
          );
          $result = $this->_db->select($this->_table, $params ,$whereis );
@@ -58,12 +61,40 @@
          );
          // "AND"=>array( 'product_name'=>$username, "is_del"=>0)
          $username = '%'.$username.'%';
-         $whereis = array( 
+         $whereis = array(
             "is_del"=>0,
             "LIKE"=>array(
                'product_name'=>$username
             )
          );
+         $result = $this->_db->select($this->_table, $params ,$whereis );
+
+         return $result==null?false:$result;
+      }
+      public function selectPage_byName($username, $page, $size)
+      {
+         $params = array(
+            "product_id",
+            "product_uuid",
+            "product_name",
+            "reg_time",
+            "money",
+            "amount",
+            "category_id"
+         );
+         //默认的起始页是第一页
+         $page = intval($page);
+         $size = intval($size);
+         $limit_start = ($page-1)*$size;
+         $username = '%'.$username.'%';
+         $whereis = array(
+            "is_del"=>0,
+            "LIKE"=>array(
+               'product_name'=>$username
+            ),
+            "LIMIT"=>array($limit_start,$size)
+         );
+         // "AND"=>array( 'product_name'=>$username, "is_del"=>0)
          $result = $this->_db->select($this->_table, $params ,$whereis );
 
          return $result==null?false:$result;
@@ -115,8 +146,27 @@
 
          return $result==null?false:$result;
       }
+
+      //返回所有产品的数目
       public function selectAll_num(){
-         $result = $this->_db->count($this->_table);
+          $whereis = array(
+              "is_del"=>0
+          );
+         $result = $this->_db->count($this->_table, $whereis);
+
+         return $result;
+      }
+
+      //返回指定名称的数目
+      public function selectAll_num_byName($username){
+          $username = '%'.$username.'%';
+          $whereis = array(
+              "is_del"=>0,
+              "LIKE"=>array(
+                 'product_name'=>$username
+              )
+          );
+         $result = $this->_db->count($this->_table, $whereis);
 
          return $result;
       }

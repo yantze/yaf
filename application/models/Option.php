@@ -1,4 +1,9 @@
 <?php
+   /**
+   * @name OptionModel
+   * @author yantze
+   * @desc 商品的数据库操作model
+   */
    Class OptionModel
    {
       protected $_table = "shop_option";

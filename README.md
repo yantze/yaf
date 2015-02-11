@@ -1,18 +1,18 @@
 ##购物车网站
 yaf+opcache for mvc+orm to api
 
-===
 用户有购买收藏等基本操作，网站后台有商品增删查改上传图片基本操作.
-前端使用AMD规范的requirejs，并且使用yeti主题的bootstrap前端响应式框架，并且支持手机浏览。
+
+前端使用AMD规范的requirejs，并且使用yeti主题的bootstrap前端响应式框架，支持手机浏览。
 
 
-集成好了smarty和twig模板引擎，后来没有用，暂时注释
+集成好smarty和twig模板引擎，后来没有用，暂时注释
 
-使用了ORM框架Medoo
+使用ORM框架Medoo
 
 开启yaf的Session管理
 
-使用了memcached和php的memcached扩展，添加session
+使用memcached和php的memcached扩展，添加session
 
 也可以用forp做性能测试，在public/index_forp.php
 
@@ -20,9 +20,7 @@ yaf+opcache for mvc+orm to api
 
 
 
-demo: http://cartbyyaf.sinaapp.com/
-
-sae不支持视图，导致不能看到购物车的内容.有时间再改吧.
+DEMO: http://cartbyyaf.sinaapp.com/
 
 
 ##快速开始
@@ -31,12 +29,24 @@ sae不支持视图，导致不能看到购物车的内容.有时间再改吧.
 
 可以按照以下步骤来部署和运行程序(SAE已经内置，不需要自己安装):
 ```
-1.请确保机器localhost已经安装了Yaf扩展框架, 并且已经加载入PHP;(sae不用安装)
-2.把yaf目录Copy到Webserver的DocumentRoot目录下;
-3.需要在php.ini里面启用如下配置，生产的代码才能正确运行(要先安装yaf扩展)：
-    yaf.environ="product"
+1.请确保机器localhost已经安装了Yaf扩展框架, 并且已经启动PHP;
+2.把这个项目拷贝到Webserver的DocumentRoot目录下;
+3.创建php.d/yaf.ini文件,里面启用如下配置,生产的代码才能正确运行：
+    extension=yaf.so
 4.重启Webserver;
 5.访问http://yourhost/,出现商城页面!, 表示运行成功,否则请查看错误日志;
+
+yaf.ini文件详细说明:
+[yaf]
+yaf.environ = product
+yaf.library = NULL
+yaf.cache_config = 0
+yaf.name_suffix = 1
+yaf.name_separator = ""
+yaf.forward_limit = 5
+yaf.use_namespace = 0     //如果使用类,可以开启
+yaf.use_spl_autoload = 0
+extension=yaf.so
 ```
 
 
@@ -144,7 +154,7 @@ yaf的api：http://yaf.laruence.com/manual/index.html
 
 浅谈数据库设计技巧：http://www.knowsky.com/4937.html
 
-sae:sina app engine
+SAE:[sina app engine](http://sae.sina.com.cn)
 
 最终效果：
 ![home](https://github.com/yantze/yaf/raw/master/docs/homepage-Screenshot 2014-11-16 04.24.04.png)

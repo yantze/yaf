@@ -16,7 +16,7 @@
            <div class="thumbnail">
                <img src="/images/product/'.$i['product_uuid'].'.jpg" alt="zi">
                <div class="caption">
-                   <h3><a href="/item/get?name='.$i['product_uuid'].'">'.$i['product_name'].'</a></h3>
+                   <h3><a href="/item/get?name='.$i['product_uuid'].'">'.mb_substr($i['product_name'],0,12,"UTF-8").'</a></h3>
                    <p>价格:<span class="price">'.$i['money'].'</span>元<p>
                    <p><a href="/order/add?name='.$i['product_uuid'].'" class="btn btn-primary btn-sm" role="button">购买</a>
                    <a href="/fav/add?name='.$i['product_uuid'].'" class="btn btn-sm btn-default" role="button">收藏</a>
@@ -31,18 +31,24 @@
 
 </div> <!-- /container -->
 
+<!-- 分页实现 -->
 <div class="center">
     <ul class="nav nav-justified pagination pagination-lg">
        <?php
        if($curPage&&$curSize&&$maxNum){
-           $pageAmount = $maxNum/$curSize;
+           $pageAmount = intval($maxNum/$curSize);
+           if ($maxNum%$curSize)
+              $pageAmount++;
 
            if($curPage>1){
               echo '<li><a href="/?page='.($curPage-1).'&size='.($curSize).'">&laquo;</a></li>';
            }
 
-           for($i=1; $i<$pageAmount; $i++){
-              echo '<li><a href="/?page='.$i.'&size='.($curSize).'">'.$i.'</a></li>';
+           for($i=1; $i<=$pageAmount; $i++){
+               if($curPage==$i)
+                  echo '<li><a class="selected" href="/?page='.$i.'&size='.($curSize).'">'.$i.'</a></li>';
+               else
+                  echo '<li><a href="/?page='.$i.'&size='.($curSize).'">'.$i.'</a></li>';
            }
 
            if($curPage<$pageAmount){

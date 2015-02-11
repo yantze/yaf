@@ -24,6 +24,10 @@
         padding-left:0px;
         padding-right:0px;
     }
+    .navbar-inverse {
+        background-color: #EB6C4C;
+        border-color: #006687;
+    }
     
 
     /*下面是位置定义*/
@@ -44,6 +48,12 @@
     }
     .text-center {
         text-align: center;
+    }
+
+    /* 页面选择按钮样式 */
+    .selected {
+    background-color: #eeeeee !important;
+    border-color: transparent;
     }
     </style>
 
@@ -96,24 +106,23 @@
     </div>
 
 <ul class="nav nav-pills">
-    <li class="col-lg-2 col-xs-2 btn-group">
-        <button type="button" class="btn btn-success btn-sm">分类</button>
-        <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+    <li class="col-lg-3 col-xs-3 btn-group">
+        <button href="#" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown">分类<p class="caret"></p></button>
         <ul class="dropdown-menu">
             <li><a href="/item/category?id=1"><strong>休闲零食</strong></a></li>
             <li><a href="/item/category?id=2">坚果炒货</a></li>
             <li><a href="/item/category?id=3">肉干肉脯</a></li>
+            <li class="divider"></li>
             <li><a href="/item/category?id=4"><strong>开心零食</strong></a></li>
             <li><a href="/item/category?id=5">糖果/巧克力</a></li>
             <li><a href="/item/category?id=6">饼干蛋糕</a></li>
         </ul>
     </li>
-    <li class="col-lg-1 col-xs-1"> </li>
-    <li class="col-lg-6 col-xs-6">
+    <li class="col-lg-6 col-xs-5">
         <div class="input-group">
             <input type="text" class="form-control js-search-name" placeholder="输入零食名称">
             <span class="input-group-btn">
-                <button class="btn btn-default js-search-btn" type="button">搜索零食</button>
+                <button class="btn btn-default js-search-btn" type="button">搜索</button>
             </span>
         </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->

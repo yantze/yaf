@@ -24,7 +24,12 @@
       }
       public function selectAll($where)
       {
-         $params = array(
+        //实现左连接表查询
+        $join = array(
+            "[>]shop_product"=>"product_uuid"
+        );
+
+        $params = array(
             "fav_id",
             "product_name",
             "money",
@@ -33,8 +38,9 @@
             "comment"
          );
          $whereis = array("user_uuid"=>$where);
-         //这里的fav是一个视图，集合了当前table——index和product的表中数据
-         $result = $this->_db->select( "fav" , $params, $whereis );
+         $result = $this->_db->select( "shop_fav" , $join, $params, $whereis );
+         // print_r($this->_db->error());
+         // print_r($result);
 
          return $result==null?false:$result;
       }
