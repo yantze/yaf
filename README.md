@@ -3,26 +3,20 @@ yaf+opcache for mvc+orm to api
 
 讲解比较细,可以当作学习yaf的入门项目,里面有很多的扩展,默认关闭
 
-前端使用requirejs，使用yeti主题的bootstrap前端响应式框架，支持手机浏览。
-
-集成smarty和twig模板引擎，后来没有用，暂时注释
-
-
 [注意]使用opcache的时候，它会缓存php为静态，debug的时候，最好关闭
-
 
 
 DEMO: http://cartbyyaf.sinaapp.com/
 
 ##涉及技术
-前端:
-requirejs:模块化和异步加载
-bootstrap,yeti:响应式框架,支持手机访问,yeti主题
-forp:页面响应性能,访问index_forp.php
-后端:
-smarty/twig:php模板引擎,默认关闭
-memcached:kv快速存取,默认关闭
-medoo:orm数据库半框架,library/Db.php
+####前端
+- requirejs:模块化和异步加载
+- bootstrap,yeti:响应式框架,支持手机访问,yeti主题
+- forp:页面响应性能,访问index_forp.php
+####后端
+- smarty/twig:php模板引擎,默认关闭
+- memcached:kv快速存取,默认关闭
+- medoo:orm数据库半框架,library/Db.php
 
 
 
