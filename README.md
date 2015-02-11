@@ -23,16 +23,15 @@ DEMO: http://cartbyyaf.sinaapp.com/
 
 ##快速开始
 
-
-
 可以按照以下步骤来部署和运行程序(SAE已经内置，不需要自己安装):
 ```
 1.请确保机器localhost已经安装了Yaf扩展框架, 并且已经启动PHP;
 2.把这个项目拷贝到Webserver的DocumentRoot目录下;
-3.创建php.d/yaf.ini文件,里面启用如下配置,生产的代码才能正确运行：
+3.创建php.d/yaf.ini文件,里面启用如下配置,代码才能正确运行：
     extension=yaf.so
-4.重启Webserver;
-5.访问http://yourhost/,出现商城页面!, 表示运行成功,否则请查看错误日志;
+4.导入schema.sql,并确保application.ini中,mysql的host,user,pwd正确配置.
+5.重启Webserver;
+6.访问http://yourhost/,出现商城页面!, 表示运行成功,否则请查看错误日志;
 
 yaf.ini文件详细说明:
 [yaf]
