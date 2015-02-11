@@ -1,7 +1,7 @@
 #购物车
 yaf+opcache for mvc+orm to api
 
-讲解比较细,可以当作学习yaf的入门项目,里面有很多的扩展,默认关闭
+可以当作学习yaf的入门项目,讲解比较细
 
 [注意]使用opcache的时候，它会缓存php为静态，debug的时候，最好关闭
 
@@ -64,14 +64,13 @@ extension=yaf.so
   |+ js
 + conf
   |- application.ini //配置文件
-  |- *.php           //空白文件,为以后架构配置
 + application
   |+ controllers
      |- Index.php //默认控制器
   |+ views    
      |+ index   //控制器
      |- index.phtml //默认视图
-  |- Bootstrap.php //项目的全局配置
+  |- Bootstrap.php //项目的全局配置,包括路由和memcached的配置等
   |- yaf_classes.php //yaf框架的函数列表,方便补全
 + modules //其他模块
 + library //本地类库
@@ -82,7 +81,6 @@ extension=yaf.so
   |+ cache  //模板生成的缓存文件
   |+ composer         //composer下载的lib
      |- composer.json //composer的依赖配置
-  |- *.php  //空白文件,为以后配置库
 ```
 
 
