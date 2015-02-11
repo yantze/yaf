@@ -76,6 +76,38 @@ extension=yaf.so
   |+ models  //model目录
   |+ plugins //插件目录
 ```
+本项目的目录说明
+```
++ public
+  |- index.php //入口文件
+  |- index_forp.php //性能测试入库
+  |- .htaccess //重写规则
+  |- favicon.jpg
+  |+ css
+  |+ images
+  |+ js
++ conf
+  |- application.ini //配置文件
+  |- *.php           //空白文件,为以后架构配置
++ application
+  |+ controllers
+     |- Index.php //默认控制器
+  |+ views    
+     |+ index   //控制器
+     |- index.phtml //默认视图
+  |- Bootstrap.php //项目的全局配置
+  |- yaf_classes.php //yaf框架的函数列表,方便补全
++ modules //其他模块
++ library //本地类库
++ models  //model目录
++ plugins //插件目录
++ tests   //测试目录
++ globals   //插件目录和全局配置
+  |+ cache  //模板生成的缓存文件
+  |+ composer         //composer下载的lib
+     |- composer.json //composer的依赖配置
+  |- *.php  //空白文件,为以后配置库
+```
 
 
 
