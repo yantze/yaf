@@ -23,8 +23,15 @@ define(function (){
     };
 
     var bind_click = function (){
+        $(".js-username").focus();
         $(".js-login-btn").on('click', function() {
             login();
+        });
+        $(".js-password").on('keypress', function(event) {
+            if ( event.which == 13 ) {
+                event.preventDefault();
+                login();
+            }
         });
     };
 

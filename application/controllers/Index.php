@@ -32,7 +32,7 @@
 
          $this->getView()->assign("name",$siteInfo[0]['value']);
          $this->getView()->assign("desc",$siteInfo[1]['value']);
-         $this->getView()->assign("itemlist",$itemlist);
+         $this->getView()->assign("items",$itemlist);
          $this->getView()->assign("maxNum",intval($maxNum));
          $this->getView()->assign("curPage",intval($page));
          $this->getView()->assign("curSize",intval($size));

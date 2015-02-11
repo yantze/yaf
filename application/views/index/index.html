@@ -8,8 +8,8 @@
 
 <div class="container">
     <?php
-    if($itemlist){
-       foreach( $itemlist as $i )
+    if(isset($items) && $items){
+       foreach( $items as $i )
        {
        echo '
        <div class="col-sm-6 col-md-4">

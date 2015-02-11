@@ -1,3 +1,8 @@
+/* 说明:
+ * 这是requirejs的入口文件
+ * 修改里面的module时,由于被浏览器缓存机制requirejs
+ * 没有显式的引用module,导致浏览器强制刷新的时候,没有重新下载module
+ */
 require.config({
     baseUrl: "../lib",
     paths: {
@@ -30,6 +35,13 @@ require(['jquery'], function ($){
     $('.js-search-btn').on('click', function(){
         name = $('.js-search-name').val();
         location.href="/item/search?name="+name;
+    });
+    $(".js-search-name").on('keypress', function(event) {
+        if ( event.which == 13 ) {
+            event.preventDefault();
+            name = $('.js-search-name').val();
+            location.href="/item/search?name="+name;
+        }
     });
 });
 

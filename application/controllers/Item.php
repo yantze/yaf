@@ -67,6 +67,7 @@
             $this->getView()->assign("curPage",intval($page));
             $this->getView()->assign("curSize",intval($size));
             $this->getView()->assign("product_name",$product_name);
+            // print_r($items);
          }else{
             $this->getView()->assign("error",'查找失败');
          }

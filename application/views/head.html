@@ -120,7 +120,7 @@
     </li>
     <li class="col-lg-6 col-xs-5">
         <div class="input-group">
-            <input type="text" class="form-control js-search-name" placeholder="输入零食名称">
+            <input type="text" class="form-control js-search-name" placeholder="输入零食名称" value='<?php if (isset($product_name) && $product_name) echo $product_name;else echo ""; ?>'>
             <span class="input-group-btn">
                 <button class="btn btn-default js-search-btn" type="button">搜索</button>
             </span>

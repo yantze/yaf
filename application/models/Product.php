@@ -86,16 +86,18 @@
          $page = intval($page);
          $size = intval($size);
          $limit_start = ($page-1)*$size;
-         $username = '%'.$username.'%';
+         // $username = '%'.$username.'%';
          $whereis = array(
-            "is_del"=>0,
-            "LIKE"=>array(
-               'product_name'=>$username
+            'AND'=>array(
+                "is_del"=>0,
+                "product_name[~]"=>$username,
             ),
-            "LIMIT"=>array($limit_start,$size)
+            "LIMIT"=>array($limit_start,$size),
          );
          // "AND"=>array( 'product_name'=>$username, "is_del"=>0)
          $result = $this->_db->select($this->_table, $params ,$whereis );
+         // print_r($this->_db->error());
+         // print_r($result);
 
          return $result==null?false:$result;
       }
@@ -143,6 +145,8 @@
          );
          $result = $this->_db->select($this->_table, $params, $whereis );
          // print_r($this->_db->last_query());
+         // print_r($this->_db->error());
+         // print_r($result);
 
          return $result==null?false:$result;
       }
@@ -159,11 +163,10 @@
 
       //返回指定名称的数目
       public function selectAll_num_byName($username){
-          $username = '%'.$username.'%';
           $whereis = array(
+              'AND'=>array(
               "is_del"=>0,
-              "LIKE"=>array(
-                 'product_name'=>$username
+              "product_name[~]"=>$username,
               )
           );
          $result = $this->_db->count($this->_table, $whereis);
