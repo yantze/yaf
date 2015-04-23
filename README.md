@@ -32,8 +32,10 @@ DEMO: http://cartbyyaf.sinaapp.com/
 4.导入schema.sql,并确保application.ini中,mysql的host,user,pwd正确配置.
 5.重启Webserver;
 6.访问http://yourhost/,出现商城页面!, 表示运行成功,否则请查看错误日志;
+```
 
-yaf.ini文件详细说明:
+**yaf.ini文件详细说明:**
+```
 [yaf]
 yaf.environ = product
 yaf.library = NULL

@@ -62,10 +62,12 @@
 
       public function _initMemcached(Yaf_Dispatcher $dispatcher){
          //memcached 扩展
-         // $this->_mc = new memcached();
-         // $mc_server = $this->_config->memcached;
-         // $this->_mc->addServer($mc_server['host'], $mc_server['port']);
-         // Yaf_Registry::set('_mc', $this->_mc);
+         $mc_server = $this->_config->memcached;
+         if ($mc_server['isopen']!=0) {
+             $this->_mc = new memcached();
+             $this->_mc->addServer($mc_server['host'], $mc_server['port']);
+             Yaf_Registry::set('_mc', $this->_mc);
+         }
 
          //eg.
          //$this->_mc->set("y","yangzhi");
