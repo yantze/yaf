@@ -165,5 +165,5 @@ yaf的api：http://yaf.laruence.com/manual/index.html
 SAE:[sina app engine](http://sae.sina.com.cn)
 
 最终效果：
-![home](https://github.com/yantze/yaf/raw/master/docs/homepage-Screenshot 2015-04-23 17.52.36)
-![backpabe](https://github.com/yantze/yaf/raw/master/docs/backpage-Screenshot 2015-04-23 17.52.52)
+![home](https://github.com/yantze/yaf/raw/master/docs/homepage-Screenshot.png)
+![backpabe](https://github.com/yantze/yaf/raw/master/docs/backpage-Screenshot.png)
