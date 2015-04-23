@@ -3,8 +3,6 @@ yaf+opcache for mvc+orm to api
 
 可以当作学习yaf的入门项目,讲解比较细
 
-[注意]使用opcache的时候，它会缓存php为静态，debug的时候，最好关闭
-
 
 DEMO: http://cartbyyaf.sinaapp.com/
 
@@ -145,6 +143,9 @@ appconfig->rewrite->高级设置->直接在大框框下填入下面的内容->�
 [注意]
 每种Server要启用Rewrite都需要特别设置, 如果对此有疑问.. RTFM
 
+[注意]
+使用opcache的时候，它会缓存php为静态，debug的时候，最好关闭
+
 
 
 参考
@@ -164,5 +165,5 @@ yaf的api：http://yaf.laruence.com/manual/index.html
 SAE:[sina app engine](http://sae.sina.com.cn)
 
 最终效果：
-![home](https://github.com/yantze/yaf/raw/master/docs/homepage-Screenshot 2014-11-16 04.24.04.png)
-![backpabe](https://github.com/yantze/yaf/raw/master/docs/backpage-Screenshot 2014-11-16 04.24.42.png)
+![home](https://github.com/yantze/yaf/raw/master/docs/homepage-Screenshot 2015-04-23 17.52.36)
+![backpabe](https://github.com/yantze/yaf/raw/master/docs/backpage-Screenshot 2015-04-23 17.52.52)
