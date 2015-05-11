@@ -23,27 +23,27 @@ DEMO: http://cartbyyaf.sinaapp.com/
 
 可以按照以下步骤来部署和运行程序(SAE已经内置，不需要自己安装):
 ```
-1.请确保机器localhost已经安装了Yaf扩展框架, 并且已经启动PHP;
+1.请确保机器localhost已经安装了Yaf扩展框架, 并且已经启动服务器和PHP;
 2.把这个项目拷贝到Webserver的DocumentRoot目录下;
 3.创建php.d/yaf.ini文件,里面启用如下配置,代码才能正确运行：
     extension=yaf.so
-4.导入schema.sql,并确保application.ini中,mysql的host,user,pwd正确配置.
+4.导入schema.sql,并确保conf/application.ini中,mysql的host,user,pwd正确配置.
 5.重启Webserver;
-6.访问http://yourhost/,出现商城页面!, 表示运行成功,否则请查看错误日志;
+6.访问http://yourhost/,出现网站页面!, 表示运行成功,否则请查看错误日志;
 ```
 
 **yaf.ini文件详细说明:**
 ```
 [yaf]
+extension=yaf.so
 yaf.environ = product
 yaf.library = NULL
 yaf.cache_config = 0
 yaf.name_suffix = 1
 yaf.name_separator = ""
 yaf.forward_limit = 5
-yaf.use_namespace = 0     //如果使用类,可以开启
-yaf.use_spl_autoload = 0
-extension=yaf.so
+yaf.use_namespace = 0     // 如果使用类,可以开启
+yaf.use_spl_autoload = 0  // 冒泡获取自动加载器
 ```
 
 
@@ -146,6 +146,43 @@ appconfig->rewrite->高级设置->直接在大框框下填入下面的内容->�
 [注意]
 使用opcache的时候，它会缓存php为静态，debug的时候，最好关闭
 
+### LAMP实践
+```bash
+yum install httpd mysql php php-mysql php-pear
+pear install yaf
+git clone http://github.com/yantze/yaf /var/www/html/shop
+
+# 先创建一个用户名为shop,密码为shop,可以管理shop数据库的账户
+mysql -ushop -p shop < schema.sql
+
+echo '; Enable yaf extension module
+extension=yaf.so
+yaf.environ="product"
+;yaf.environ="devel"
+;yaf.use_namespace = 1
+yaf.cache_config = 1
+yaf.use_spl_autoload = 0
+' > /etc/php.d/yaf.ini
+
+echo 'Listen 85
+<VirtualHost *:85>
+	ServerName localhost
+	DocumentRoot "/var/www/html/shop/public"
+
+	ErrorLog logs/test_error_log
+	LogLevel warn
+	CustomLog logs/test_access_log combined
+</VirtualHost>
+
+<Directory "/var/www/html/shop/public">
+    AllowOverride ALL
+    Options Indexes FollowSymLinks
+    Order allow,deny
+    Allow from all
+</Directory>' >> /etc/httpd/conf/httpd.conf
+
+service httpd restart
+```
 
 
 参考
