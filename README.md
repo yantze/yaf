@@ -148,6 +148,7 @@ appconfig->rewrite->高级设置->直接在大框框下填入下面的内容->�
 
 ### LAMP实践
 ```bash
+# 在CentOS6-7测试过
 yum install httpd mysql php php-mysql php-pear
 pear install yaf
 git clone http://github.com/yantze/yaf /var/www/html/shop
@@ -182,6 +183,7 @@ echo 'Listen 85
 </Directory>' >> /etc/httpd/conf/httpd.conf
 
 service httpd restart
+# 在浏览器访问http://webserver:85/，就可以看到网站部署成功
 ```
 
 
