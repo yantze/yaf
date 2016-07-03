@@ -4,7 +4,7 @@ yaf+opcache for mvc+orm to api
 可以当作学习yaf的入门项目,讲解比较细
 
 
-DEMO: http://cartbyyaf.sinaapp.com/
+[DEMO](http://cartbyyaf.sinaapp.com/)
 
 ##涉及技术
 ####前端
@@ -189,19 +189,19 @@ service httpd restart
 
 参考
 ===
-yaf的一些资源：http://www.laruence.com/2012/07/06/2649.html
+[yaf的一些资源](http://www.laruence.com/2012/07/06/2649.html)
 
-yaf学习的一些思路：http://achun.iteye.com/blog/1473126
+[yaf学习的一些思路](http://achun.iteye.com/blog/1473126)
 
-YafUse项目给了我很大的帮助：https://www.github.com/melonwool/YafUse/
+给了我很大的帮助的[YafUse项目](https://www.github.com/melonwool/YafUse/)
 
-yaf的api：http://yaf.laruence.com/manual/index.html
+[yaf的api](http://yaf.laruence.com/manual/index.html)
 
 数据库设计上面主要有课本上的一些知识
 
-浅谈数据库设计技巧：http://www.knowsky.com/4937.html
+[浅谈数据库设计技巧](http://www.knowsky.com/4937.html)
 
-SAE:[sina app engine](http://sae.sina.com.cn)
+[SAE(sina app engine)](http://sae.sina.com.cn)
 
 最终效果：
 ![home](https://github.com/yantze/yaf/raw/master/docs/homepage-Screenshot.png)
