@@ -23,6 +23,7 @@
       {
          if($this->getRequest()->isPost())
          {
+            echo "hello wordl!";:
             $username = $this->getRequest()->getPost('username');
             $pwd      = $this->getRequest()->getPost('password');
 
