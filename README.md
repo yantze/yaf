@@ -1,4 +1,4 @@
-#购物车
+# 购物车
 yaf+opcache for mvc+orm to api
 
 可以当作学习yaf的入门项目,讲解比较细
@@ -6,20 +6,20 @@ yaf+opcache for mvc+orm to api
 
 [DEMO](http://cartbyyaf.sinaapp.com/)
 
-##涉及技术
-####前端
+## 涉及技术
+#### 前端
 - requirejs:模块化和异步加载
 - bootstrap,yeti:响应式框架,支持手机访问,yeti主题
 - forp:页面响应性能,访问index_forp.php
 
-####后端
+#### 后端
 - smarty/twig:php模板引擎,默认关闭
 - memcached:kv快速存取,默认关闭
 - medoo:orm数据库半框架,library/Db.php
 
 
 
-##快速开始
+## 快速开始
 
 可以按照以下步骤来部署和运行程序(SAE已经内置，不需要自己安装):
 ```
@@ -47,7 +47,7 @@ yaf.use_spl_autoload = 0  // 冒泡获取自动加载器
 ```
 
 
-###目录结构
+### 目录结构
 
 对于Yaf的应用, 都应该遵循类似下面的目录结构.
 
@@ -84,11 +84,11 @@ yaf.use_spl_autoload = 0  // 冒泡获取自动加载器
 
 
 
-###重写规则
+### 重写规则
 
 除非我们使用基于query string的路由协议(Yaf_Route_Simple, Yaf_Route_Supervar), 否则我们就需要使用WebServer提供的Rewrite规则, 把所有这个应用的请求, 都定向到上面提到的入口文件.
 
-####Apache的Rewrite (httpd.conf)
+#### Apache的Rewrite (httpd.conf)
 .htaccess
 ```
 RewriteEngine On
@@ -106,7 +106,7 @@ DocumentRoot "path/public" #需要定位到本项目的public文件夹
 ```
 
 
-####Nginx的Rewrite (nginx.conf)
+#### Nginx的Rewrite (nginx.conf)
 ```
 root path/public #需要定位到本项目的public文件夹
 location / {
@@ -115,7 +115,7 @@ location / {
 ```
 
 
-####Lighttpd的Rewrite (lighttpd.conf)
+#### Lighttpd的Rewrite (lighttpd.conf)
 ```
 $HTTP["host"] =~ "(www.)?domain.com$" {
   url.rewrite = (
@@ -125,7 +125,7 @@ $HTTP["host"] =~ "(www.)?domain.com$" {
 ```
 
 
-####SAE的Rewrite (config.yaml)
+#### SAE的Rewrite (config.yaml)
 ```
 name: your_app_name
 version: 1
@@ -189,19 +189,12 @@ service httpd restart
 
 参考
 ===
-[yaf的一些资源](http://www.laruence.com/2012/07/06/2649.html)
-
-[yaf学习的一些思路](http://achun.iteye.com/blog/1473126)
-
-给了我很大的帮助的[YafUse项目](https://www.github.com/melonwool/YafUse/)
-
-[yaf的api](http://yaf.laruence.com/manual/index.html)
-
-数据库设计上面主要有课本上的一些知识
-
-[浅谈数据库设计技巧](http://www.knowsky.com/4937.html)
-
-[SAE(sina app engine)](http://sae.sina.com.cn)
+- [yaf的一些资源](http://www.laruence.com/2012/07/06/2649.html)
+- [yaf学习的一些思路](http://achun.iteye.com/blog/1473126)
+- [YafUse项目](https://www.github.com/melonwool/YafUse/)
+- [yaf的api](http://yaf.laruence.com/manual/index.html)
+- [浅谈数据库设计技巧](http://www.knowsky.com/4937.html)
+- [SAE(sina app engine)](http://sae.sina.com.cn)
 
 最终效果：
 ![home](https://github.com/yantze/yaf/raw/master/docs/homepage-Screenshot.png)
